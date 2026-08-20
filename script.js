@@ -73,12 +73,18 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const panoBackgrounds = document.querySelectorAll(".pano-static-bg");
+  const heroTextScroll = document.querySelector(".hero-text");
   let panoTicking = false;
 
   function updatePanoScroll() {
     panoTicking = false;
+
     if (reduceMotion.matches || window.innerWidth <= 920) {
       panoBackgrounds.forEach(bg => bg.style.setProperty("--pano-shift", "0px"));
+      if (heroTextScroll) {
+        heroTextScroll.style.removeProperty("transform");
+        heroTextScroll.style.removeProperty("opacity");
+      }
       return;
     }
 
@@ -88,9 +94,21 @@ document.addEventListener("DOMContentLoaded", () => {
       const rect = section.getBoundingClientRect();
       if (rect.bottom < 0 || rect.top > window.innerHeight) return;
       const centerOffset = (rect.top + rect.height / 2) - window.innerHeight / 2;
-      const shift = Math.max(-42, Math.min(42, centerOffset * -0.055));
+      const shift = Math.max(-48, Math.min(48, centerOffset * -0.06));
       bg.style.setProperty("--pano-shift", `${shift.toFixed(1)}px`);
     });
+
+    /* Profundidad muy ligera en la portada: el texto se desplaza más
+       lento que la página para dar una sensación cinematográfica. */
+    if (heroTextScroll) {
+      const hero = heroTextScroll.closest(".hero");
+      if (hero) {
+        const rect = hero.getBoundingClientRect();
+        const progress = Math.max(0, Math.min(1, -rect.top / Math.max(1, rect.height)));
+        heroTextScroll.style.transform = `translate3d(0, ${(progress * 34).toFixed(1)}px, 0)`;
+        heroTextScroll.style.opacity = String(Math.max(.72, 1 - progress * .28));
+      }
+    }
   }
 
   function requestPanoUpdate() {
@@ -102,6 +120,44 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", requestPanoUpdate, { passive: true });
   window.addEventListener("resize", requestPanoUpdate);
   updatePanoScroll();
+
+  /* ---------------- REVELADO ESCALONADO ----------------
+     Los fondos de las secciones permanecen estables y solo el contenido
+     entra de forma progresiva. Esto evita el efecto brusco de que toda
+     la sección aparezca de golpe. */
+  const scrollRevealSelector = [
+    ".museum-gateway-card",
+    ".historia-resumen-bloque",
+    ".juan-story-timeline article",
+    ".valor-card",
+    ".simbolo-defs > div",
+    ".route-stat",
+    ".timeline-item",
+    ".agenda-feature",
+    ".agenda-item",
+    ".alerts-benefits li"
+  ].join(",");
+
+  const staggerItems = Array.from(document.querySelectorAll(scrollRevealSelector));
+
+  staggerItems.forEach((item, index) => {
+    item.classList.add("scroll-reveal-item");
+    item.style.setProperty("--scroll-delay", `${(index % 4) * 70}ms`);
+  });
+
+  if ("IntersectionObserver" in window && !reduceMotion.matches) {
+    const itemObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-revealed");
+        itemObserver.unobserve(entry.target);
+      });
+    }, { threshold: .12, rootMargin: "0px 0px -6% 0px" });
+
+    staggerItems.forEach(item => itemObserver.observe(item));
+  } else {
+    staggerItems.forEach(item => item.classList.add("is-revealed"));
+  }
 
   /* ---------------- MENÚ MÓVIL ---------------- */
   const navToggle = document.getElementById("navToggle");
@@ -611,7 +667,7 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       nombre: "Zongolica", estado: "Veracruz", lat: 18.6668459, lng: -97.0001223,
       foto: "assets/mapi-38-zongolica.jpg",
-      historia: "En 1811 el movimiento de Independencia llegó a Zongolica, donde Juan Moctezuma y Cortés se incorporó a la causa insurgente. Es la meta del recorrido contemporáneo.",
+      historia: "El compendio histórico vincula a Zongolica con la organización insurgente encabezada por Juan Moctezuma y Cortés. Es la meta del recorrido contemporáneo.",
       hora: "10:30 p. m.",
     },
   ];
@@ -963,35 +1019,68 @@ document.addEventListener("DOMContentLoaded", () => {
   const seccionesPrincipales = Array.from(document.querySelectorAll("main section[id]"));
 
   if (seccionesPrincipales.length) {
+    const nombresSeccion = {
+      inicio: "Inicio",
+      introduccion: "Introducción",
+      preparate: "Prepárate",
+      historia: "Historia",
+      "juan-moctezuma": "Juan Moctezuma",
+      valores: "Valores",
+      museo: "Museo Digital",
+      simbolismo: "Simbolismo",
+      recorrido: "Recorrido",
+      programa: "Programa",
+      galeria: "Memoria gráfica",
+      "canal-whatsapp": "WhatsApp"
+    };
+
     const dotsNav = document.createElement("nav");
     dotsNav.className = "section-dots";
     dotsNav.setAttribute("aria-label", "Ir a sección");
 
-    const dots = seccionesPrincipales.map(seccion => {
+    const sectionIndicator = document.createElement("div");
+    sectionIndicator.className = "scroll-section-indicator";
+    sectionIndicator.setAttribute("aria-hidden", "true");
+    sectionIndicator.innerHTML = `<span class="scroll-section-number">01</span><span class="scroll-section-name">Inicio</span>`;
+
+    const dots = seccionesPrincipales.map((seccion, index) => {
       const dot = document.createElement("button");
+      const label = nombresSeccion[seccion.id] || seccion.id;
       dot.type = "button";
       dot.className = "section-dot";
-      dot.setAttribute("aria-label", seccion.id);
+      dot.dataset.label = label;
+      dot.setAttribute("aria-label", `Ir a ${label}`);
       dot.addEventListener("click", () => {
         seccion.scrollIntoView({ behavior: "smooth", block: "start" });
       });
       dotsNav.appendChild(dot);
-      return { seccion, dot };
+      return { seccion, dot, label, index };
     });
 
-    document.body.appendChild(dotsNav);
+    document.body.append(dotsNav, sectionIndicator);
+
+    const numberEl = sectionIndicator.querySelector(".scroll-section-number");
+    const nameEl = sectionIndicator.querySelector(".scroll-section-name");
+
+    const activarSeccion = (item) => {
+      dots.forEach(d => d.dot.classList.remove("is-active"));
+      item.dot.classList.add("is-active");
+      if (numberEl) numberEl.textContent = String(item.index + 1).padStart(2, "0");
+      if (nameEl) nameEl.textContent = item.label;
+    };
 
     const dotObserver = new IntersectionObserver((entradas) => {
-      entradas.forEach(entrada => {
-        const item = dots.find(d => d.seccion === entrada.target);
-        if (item && entrada.isIntersecting) {
-          dots.forEach(d => d.dot.classList.remove("is-active"));
-          item.dot.classList.add("is-active");
-        }
-      });
-    }, { threshold: 0.5 });
+      const visibles = entradas
+        .filter(entrada => entrada.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+      if (!visibles.length) return;
+      const item = dots.find(d => d.seccion === visibles[0].target);
+      if (item) activarSeccion(item);
+    }, { threshold: [0.22, 0.4, 0.6], rootMargin: "-18% 0px -36% 0px" });
 
     seccionesPrincipales.forEach(seccion => dotObserver.observe(seccion));
+    if (dots[0]) activarSeccion(dots[0]);
   }
 
   /* ---------------- FRANJA DE TEXTO EN MOVIMIENTO (TICKER) ----------------
@@ -1003,7 +1092,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "150 km de recorrido",
     "14 municipios",
     "15 de septiembre de 2026",
-    "Historia insurgente desde 1811",
+    "Historia e identidad serrana",
     "Sierra de Zongolica",
   ];
 
