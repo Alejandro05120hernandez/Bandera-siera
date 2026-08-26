@@ -7278,3 +7278,789 @@ main > section.scroll-live-stage.is-in-view .eyebrow-rule{
     min-height: 320px;
   }
 }
+
+
+/* ============================================================
+   CORRECCIÓN VISUAL · SECCIONES BLANCAS
+   SOLO afecta:
+   - Introducción
+   - Museo Digital / BANDERA SIERA
+   - Recorrido de la Insurgencia
+   No modifica estructura, posiciones, tamaños ni paleta.
+   ============================================================ */
+
+/* Quitar mural únicamente de estas secciones */
+#introduccion,
+#museo,
+#recorrido{
+  background: var(--hueso) !important;
+}
+
+/* Anular las capas de mural que se habían agregado */
+#introduccion::before,
+#introduccion::after,
+#museo::before,
+#museo::after,
+#recorrido::before,
+#recorrido::after{
+  content: none !important;
+  display: none !important;
+  background: none !important;
+}
+
+/* Texto principal legible */
+#introduccion,
+#introduccion p,
+#introduccion h1,
+#introduccion h2,
+#introduccion h3,
+#introduccion h4,
+
+#museo,
+#museo p,
+#museo h1,
+#museo h2,
+#museo h3,
+#museo h4,
+
+#recorrido,
+#recorrido p,
+#recorrido h1,
+#recorrido h2,
+#recorrido h3,
+#recorrido h4{
+  color: var(--tinta) !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+}
+
+/* Acentos verdes institucionales */
+#introduccion strong,
+#museo .story-label,
+#museo .eyebrow,
+#museo .eyebrow-green,
+#recorrido .story-label,
+#recorrido .eyebrow,
+#recorrido .eyebrow-green{
+  color: var(--verde-dark) !important;
+}
+
+/* BANDERA SIERA conserva el rojo */
+#museo .story-chapter-header h2 span{
+  color: var(--rojo) !important;
+}
+
+/* Textos secundarios */
+#museo .section-lead,
+#museo .story-copy p,
+#museo .bandera-researcher-copy p,
+#museo .bandera-story-timeline p,
+#museo .kuauhtototl-story-card p,
+#recorrido .section-lead,
+#recorrido .recorrido-origin-copy p,
+#recorrido .timeline-content p,
+#recorrido .route-map-lead{
+  color: var(--tinta-suave) !important;
+  opacity: 1 !important;
+}
+
+/* ============================================================
+   LEYENDA DEL KUAUHTOTOTL
+   ============================================================ */
+#museo .bandera-legend-card,
+#museo .kuauhtototl-story-card{
+  color: var(--tinta) !important;
+}
+
+#museo .bandera-legend-card > div > span,
+#museo .kuauhtototl-story-card > div > span{
+  color: var(--verde-dark) !important;
+  opacity: 1 !important;
+}
+
+#museo .bandera-legend-card h3,
+#museo .kuauhtototl-story-card h3{
+  color: var(--tinta) !important;
+  opacity: 1 !important;
+}
+
+#museo .bandera-legend-card p,
+#museo .kuauhtototl-story-card p{
+  color: var(--tinta-suave) !important;
+  opacity: 1 !important;
+}
+
+/* ============================================================
+   ANEXO DEL HIMNO
+   Fondo blanco/verde muy suave y texto oscuro.
+   ============================================================ */
+#recorrido .hymn-annex{
+  background:
+    linear-gradient(
+      135deg,
+      rgba(247,248,248,.99) 0%,
+      rgba(247,248,248,.97) 72%,
+      rgba(3,105,77,.08) 100%
+    ) !important;
+  border-color: rgba(3,105,77,.16) !important;
+}
+
+#recorrido .hymn-annex-copy,
+#recorrido .hymn-annex-copy p,
+#recorrido .hymn-annex-copy strong,
+#recorrido .hymn-annex-copy h3{
+  color: var(--tinta) !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+}
+
+#recorrido .hymn-annex-copy .story-label{
+  color: var(--verde-dark) !important;
+}
+
+#recorrido .hymn-inline-player{
+  color-scheme: light;
+  background: rgba(247,248,248,.97) !important;
+  border-radius: 999px;
+}
+
+/* ============================================================
+   RECUADROS
+   Mantener el acabado blanco difuminado a verde,
+   pero ahora sobre fondo blanco.
+   ============================================================ */
+#museo .story-media,
+#museo .story-doc-card,
+#museo .kuauhtototl-story-card,
+#museo .bandera-story-timeline article,
+#museo .bandera-researcher-card,
+
+#recorrido .hymn-annex,
+#recorrido .recorrido-origin-story,
+#recorrido .recorrido-origin-media,
+#recorrido .recorrido-shirts-showcase,
+#recorrido .route-stats,
+#recorrido .timeline-item,
+#recorrido .route-map-badge,
+#recorrido .route-map-frame,
+#recorrido .route-legend-item{
+  background:
+    linear-gradient(
+      135deg,
+      rgba(247,248,248,.99) 0%,
+      rgba(247,248,248,.96) 68%,
+      rgba(3,105,77,.085) 100%
+    ) !important;
+  border-color: rgba(3,105,77,.16) !important;
+}
+
+/* En móvil también se mantiene fondo limpio */
+@media (max-width:700px){
+  #introduccion,
+  #museo,
+  #recorrido{
+    background: var(--hueso) !important;
+  }
+}
+
+
+/* ============================================================
+   PREPÁRATE PARA EL RECORRIDO · FONDO BLANCO
+   Solo modifica el fondo y el contraste de texto de #preparate.
+   No cambia estructura, tamaños, posiciones ni paleta.
+   ============================================================ */
+
+#preparate{
+  background: var(--hueso) !important;
+}
+
+/* Elimina únicamente el mural/capas visuales de esta sección */
+#preparate::before,
+#preparate::after{
+  content: none !important;
+  display: none !important;
+  background: none !important;
+}
+
+/* Mantener título y texto completamente legibles */
+#preparate .event-promise-simple-title{
+  color: var(--verde-dark) !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+}
+
+#preparate .event-promise-simple-text,
+#preparate .event-promise-simple-text strong{
+  color: var(--tinta) !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+}
+
+@media (max-width:700px){
+  #preparate{
+    background: var(--hueso) !important;
+  }
+}
+
+
+/* ============================================================
+   CORRECCIÓN FINAL · MOMENTO CENTRAL + BANDERA SIERA
+   Solo corrige contraste y visibilidad.
+   No modifica estructura, tamaños, posiciones ni paleta.
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   PROGRAMA · MOMENTO CENTRAL
+   Recupera el destaque verde original para que hora, título,
+   descripción y etiqueta sean totalmente visibles.
+   ------------------------------------------------------------ */
+#programa .agenda-item.is-highlight{
+  background:
+    linear-gradient(
+      135deg,
+      var(--verde) 0%,
+      var(--verde-2) 100%
+    ) !important;
+  border-color: var(--verde) !important;
+  color: var(--hueso) !important;
+  box-shadow:
+    0 18px 38px -22px rgba(3,105,77,.55),
+    var(--shadow-green) !important;
+}
+
+#programa .agenda-item.is-highlight .agenda-time,
+#programa .agenda-item.is-highlight .agenda-content,
+#programa .agenda-item.is-highlight .agenda-content h3,
+#programa .agenda-item.is-highlight .agenda-content p{
+  color: var(--hueso) !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+}
+
+#programa .agenda-item.is-highlight .agenda-time{
+  font-weight: 800;
+}
+
+#programa .agenda-item.is-highlight .agenda-tag{
+  color: var(--hueso) !important;
+  background: rgba(247,248,248,.16) !important;
+  border: 1px solid rgba(247,248,248,.28);
+  opacity: 1 !important;
+}
+
+/* ------------------------------------------------------------
+   MUSEO · TARJETA PRINCIPAL DE LA BANDERA SIERA
+   La imagen se muestra completa y sin el velo blanco que la
+   estaba ocultando en la parte inferior.
+   ------------------------------------------------------------ */
+#museo .story-media--flag{
+  background: var(--hueso-2) !important;
+  border-color: rgba(3,105,77,.18) !important;
+}
+
+#museo .story-media--flag img{
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  padding: 0 !important;
+  background: var(--hueso-2) !important;
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+/* El pie vuelve a ser un degradado oscuro muy discreto,
+   para que se lea sin tapar la bandera. */
+#museo .story-media--flag figcaption{
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  padding: 38px 18px 14px !important;
+  background:
+    linear-gradient(
+      to top,
+      rgba(4,34,26,.82) 0%,
+      rgba(4,34,26,.52) 45%,
+      rgba(4,34,26,0) 100%
+    ) !important;
+  color: var(--hueso) !important;
+}
+
+#museo .story-media--flag figcaption strong{
+  color: var(--hueso) !important;
+  opacity: 1 !important;
+}
+
+#museo .story-media--flag figcaption span{
+  color: rgba(247,248,248,.88) !important;
+  opacity: 1 !important;
+}
+
+/* En móvil se conserva exactamente la misma lógica */
+@media (max-width:700px){
+  #museo .story-media--flag img{
+    object-fit: contain !important;
+    object-position: center center !important;
+  }
+
+  #museo .story-media--flag figcaption{
+    padding: 32px 14px 12px !important;
+  }
+}
+
+
+/* ============================================================
+   MOMENTO CENTRAL · FONDO BLANCO Y LETRAS NEGRAS
+   Solo corrige esta tarjeta del programa.
+   No modifica estructura, tamaños, posiciones ni otras secciones.
+   ============================================================ */
+
+#programa .agenda-item.is-highlight{
+  background:
+    linear-gradient(
+      135deg,
+      rgba(247,248,248,.99) 0%,
+      rgba(247,248,248,.97) 72%,
+      rgba(3,105,77,.07) 100%
+    ) !important;
+  border-color: rgba(3,105,77,.16) !important;
+  color: var(--tinta) !important;
+  box-shadow:
+    0 14px 32px -24px rgba(3,105,77,.30),
+    0 2px 10px -4px rgba(26,26,24,.10) !important;
+}
+
+#programa .agenda-item.is-highlight .agenda-time,
+#programa .agenda-item.is-highlight .agenda-content,
+#programa .agenda-item.is-highlight .agenda-content h3,
+#programa .agenda-item.is-highlight .agenda-content p{
+  color: var(--tinta) !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+}
+
+#programa .agenda-item.is-highlight .agenda-content p{
+  color: var(--tinta-suave) !important;
+}
+
+#programa .agenda-item.is-highlight .agenda-tag{
+  color: var(--verde-dark) !important;
+  background: rgba(3,105,77,.06) !important;
+  border: 1px solid rgba(3,105,77,.16) !important;
+  opacity: 1 !important;
+}
+
+
+/* ============================================================
+   PLAYERAS CONMEMORATIVAS · CARRUSEL COMO MEMORIA GRÁFICA
+   Override FINAL.
+   SOLO modifica el carrusel de playeras.
+   No cambia estructura, textos, mapa, programa ni Memoria Gráfica.
+   ============================================================ */
+
+.recorrido-shirts-showcase{
+  position:relative !important;
+  margin:24px 0 38px !important;
+  padding:22px 24px 18px !important;
+  overflow:hidden !important;
+  border:1px solid var(--linea) !important;
+  border-radius:18px !important;
+  background:var(--hueso) !important;
+  box-shadow:var(--shadow-sm) !important;
+}
+
+/* Encabezado compacto */
+.recorrido-shirts-header{
+  display:block !important;
+  margin:0 0 8px !important;
+}
+
+.recorrido-shirts-header > div{
+  max-width:820px !important;
+}
+
+.recorrido-shirts-header .story-label{
+  color:var(--verde-dark) !important;
+}
+
+.recorrido-shirts-header h3{
+  margin:4px 0 6px !important;
+  color:var(--tinta) !important;
+  font-size:clamp(1.25rem,2vw,1.75rem) !important;
+  line-height:1.12 !important;
+}
+
+.recorrido-shirts-header p{
+  margin:0 !important;
+  color:var(--tinta-suave) !important;
+  font-size:.84rem !important;
+  line-height:1.55 !important;
+}
+
+/* Ayuda de navegación */
+.recorrido-shirts-hint{
+  margin:10px 0 7px !important;
+  padding:0 !important;
+  color:var(--tinta-suave) !important;
+  background:transparent !important;
+  border:0 !important;
+  font-size:.74rem !important;
+  font-weight:600 !important;
+  letter-spacing:.01em !important;
+  text-transform:none !important;
+}
+
+/* Controles como Memoria Gráfica */
+.recorrido-shirts-showcase .shirts-carousel-controls{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:space-between !important;
+  gap:14px !important;
+  margin:9px 0 7px !important;
+}
+
+.recorrido-shirts-showcase .shirts-carousel-status{
+  display:flex !important;
+  align-items:center !important;
+  gap:8px !important;
+  color:var(--tinta-suave) !important;
+  font-size:.8rem !important;
+  font-weight:700 !important;
+}
+
+.recorrido-shirts-showcase .shirts-carousel-status strong{
+  color:var(--verde-dark) !important;
+  font-family:var(--titular) !important;
+  font-size:1rem !important;
+}
+
+.recorrido-shirts-showcase .shirts-carousel-actions{
+  display:flex !important;
+  gap:8px !important;
+}
+
+.recorrido-shirts-showcase .shirts-carousel-btn{
+  width:42px !important;
+  height:42px !important;
+  flex:0 0 42px !important;
+  display:grid !important;
+  place-items:center !important;
+  padding:0 !important;
+  border:1px solid rgba(3,105,77,.24) !important;
+  border-radius:50% !important;
+  color:var(--verde-dark) !important;
+  background:rgba(3,105,77,.055) !important;
+  cursor:pointer !important;
+  transition:
+    transform .18s ease,
+    color .18s ease,
+    background .18s ease,
+    opacity .18s ease !important;
+}
+
+.recorrido-shirts-showcase .shirts-carousel-btn:hover{
+  color:var(--hueso) !important;
+  background:var(--verde) !important;
+  transform:translateY(-2px) !important;
+}
+
+.recorrido-shirts-showcase .shirts-carousel-btn:disabled{
+  opacity:.28 !important;
+  cursor:default !important;
+  transform:none !important;
+}
+
+.recorrido-shirts-showcase .shirts-carousel-btn svg{
+  width:19px !important;
+  height:19px !important;
+  fill:none !important;
+  stroke:currentColor !important;
+  stroke-width:2 !important;
+  stroke-linecap:round !important;
+  stroke-linejoin:round !important;
+}
+
+/* Ventana: misma sensación inmersiva de Memoria Gráfica */
+.recorrido-shirts-panels{
+  overflow:hidden !important;
+  margin-inline:-24px !important;
+  padding-inline:24px !important;
+  padding-block:8px 14px !important;
+}
+
+.recorrido-shirts-track{
+  display:flex !important;
+  align-items:center !important;
+  gap:clamp(14px,2vw,24px) !important;
+  width:100% !important;
+  margin:0 !important;
+  padding:18px max(7vw,42px) 26px !important;
+  overflow-x:auto !important;
+  overflow-y:hidden !important;
+  scroll-snap-type:x mandatory !important;
+  scroll-padding-inline:50% !important;
+  overscroll-behavior-inline:contain !important;
+  -webkit-overflow-scrolling:touch !important;
+  scrollbar-width:none !important;
+  cursor:grab !important;
+  perspective:1200px !important;
+}
+
+.recorrido-shirts-track::-webkit-scrollbar{
+  display:none !important;
+}
+
+.recorrido-shirts-track.is-grabbing{
+  cursor:grabbing !important;
+  scroll-snap-type:none !important;
+  user-select:none !important;
+}
+
+/* Tarjetas: mismas proporciones del carrusel de Memoria Gráfica */
+.recorrido-shirt-card{
+  position:relative !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  flex:0 0 clamp(300px,34vw,470px) !important;
+  width:clamp(300px,34vw,470px) !important;
+  max-width:none !important;
+  aspect-ratio:4 / 3 !important;
+  margin:0 !important;
+  overflow:hidden !important;
+  scroll-snap-align:center !important;
+  scroll-snap-stop:always !important;
+  border:1px solid rgba(3,105,77,.15) !important;
+  border-radius:18px !important;
+  background:
+    radial-gradient(
+      circle at 50% 42%,
+      rgba(255,255,255,1) 0%,
+      rgba(247,248,248,.97) 60%,
+      rgba(3,105,77,.07) 100%
+    ) !important;
+  box-shadow:0 20px 55px -32px rgba(3,105,77,.48) !important;
+  transform-style:preserve-3d !important;
+  transform-origin:center center !important;
+  will-change:transform,opacity !important;
+  transition:
+    border-color .25s ease,
+    box-shadow .25s ease,
+    opacity .15s linear !important;
+}
+
+/* Playera activa en el centro */
+.recorrido-shirt-card.is-shirt-active{
+  border-color:rgba(3,105,77,.52) !important;
+  box-shadow:
+    0 28px 62px -32px rgba(3,105,77,.60),
+    0 0 0 1px rgba(212,31,53,.12) !important;
+}
+
+/* La foto siempre completa y centrada */
+.recorrido-shirt-card img{
+  width:100% !important;
+  height:100% !important;
+  min-height:0 !important;
+  margin:auto !important;
+  padding:7px !important;
+  display:block !important;
+  object-fit:contain !important;
+  object-position:center center !important;
+  background:transparent !important;
+  transform:scale(1) !important;
+  cursor:zoom-in !important;
+  -webkit-user-drag:none !important;
+  user-select:none !important;
+  transition:transform .45s cubic-bezier(.2,.8,.2,1) !important;
+}
+
+/* Misma presencia de la foto central que Memoria Gráfica */
+.recorrido-shirt-card.is-shirt-active img{
+  transform:scale(1.025) !important;
+}
+
+/* Nombre sobre un degradado inferior */
+.recorrido-shirt-card figcaption{
+  position:absolute !important;
+  left:0 !important;
+  right:0 !important;
+  bottom:0 !important;
+  z-index:3 !important;
+  margin:0 !important;
+  padding:48px 16px 13px !important;
+  color:#fff !important;
+  background:
+    linear-gradient(
+      to top,
+      rgba(4,34,26,.90) 0%,
+      rgba(4,34,26,.65) 48%,
+      rgba(4,34,26,0) 100%
+    ) !important;
+  font-size:.8rem !important;
+  font-weight:800 !important;
+  line-height:1.25 !important;
+  letter-spacing:.012em !important;
+  pointer-events:none !important;
+}
+
+/* Indicador para abrir la playera */
+.recorrido-shirt-card::after{
+  content:"↗" !important;
+  position:absolute !important;
+  top:14px !important;
+  right:14px !important;
+  z-index:4 !important;
+  width:34px !important;
+  height:34px !important;
+  display:grid !important;
+  place-items:center !important;
+  border-radius:50% !important;
+  color:#fff !important;
+  background:rgba(3,105,77,.86) !important;
+  border:1px solid rgba(255,255,255,.30) !important;
+  box-shadow:0 8px 24px rgba(3,105,77,.22) !important;
+  opacity:.82 !important;
+  pointer-events:none !important;
+  transition:opacity .2s ease,transform .2s ease !important;
+}
+
+.recorrido-shirt-card:hover::after,
+.recorrido-shirt-card.is-shirt-active::after{
+  opacity:1 !important;
+  transform:scale(1.06) !important;
+}
+
+/* Barra de progreso igual al carrusel inferior */
+.recorrido-shirts-showcase .shirts-carousel-progress{
+  height:4px !important;
+  margin-top:6px !important;
+  overflow:hidden !important;
+  border-radius:999px !important;
+  background:rgba(3,105,77,.12) !important;
+}
+
+.recorrido-shirts-showcase .shirts-carousel-progress > span{
+  display:block !important;
+  height:100% !important;
+  border-radius:inherit !important;
+  background:
+    linear-gradient(
+      90deg,
+      var(--verde),
+      var(--hueso) 50%,
+      var(--rojo)
+    ) !important;
+  transition:width .12s linear !important;
+}
+
+/* El lightbox ya existente abre también las playeras.
+   Solo reforzamos la visualización de la imagen ampliada. */
+.lightbox-overlay img{
+  width:auto !important;
+  height:auto !important;
+  max-width:min(94vw,1400px) !important;
+  max-height:90vh !important;
+  object-fit:contain !important;
+  object-position:center center !important;
+  margin:auto !important;
+  display:block !important;
+}
+
+/* Tablet */
+@media (max-width:900px){
+  .recorrido-shirts-panels{
+    margin-inline:-20px !important;
+    padding-inline:20px !important;
+  }
+
+  .recorrido-shirts-track{
+    gap:16px !important;
+    padding-inline:9vw !important;
+  }
+
+  .recorrido-shirt-card{
+    flex:0 0 min(72vw,430px) !important;
+    width:min(72vw,430px) !important;
+  }
+}
+
+/* Móvil */
+@media (max-width:620px){
+  .recorrido-shirts-showcase{
+    margin:18px 0 30px !important;
+    padding:16px 14px 14px !important;
+    border-radius:15px !important;
+  }
+
+  .recorrido-shirts-header h3{
+    font-size:1.08rem !important;
+  }
+
+  .recorrido-shirts-header p{
+    display:none !important;
+  }
+
+  .recorrido-shirts-hint{
+    font-size:.7rem !important;
+  }
+
+  .recorrido-shirts-showcase .shirts-carousel-btn{
+    width:40px !important;
+    height:40px !important;
+    flex-basis:40px !important;
+  }
+
+  .recorrido-shirts-panels{
+    margin-inline:-14px !important;
+    padding-inline:14px !important;
+  }
+
+  .recorrido-shirts-track{
+    gap:12px !important;
+    padding:12px 10vw 22px !important;
+    scroll-padding-inline:10vw !important;
+    touch-action:pan-x pan-y !important;
+  }
+
+  .recorrido-shirt-card{
+    flex:0 0 78vw !important;
+    width:78vw !important;
+    max-width:340px !important;
+    border-radius:15px !important;
+  }
+
+  .recorrido-shirt-card figcaption{
+    padding:44px 14px 12px !important;
+    font-size:.75rem !important;
+  }
+
+  .recorrido-shirt-card::after{
+    width:30px !important;
+    height:30px !important;
+    top:10px !important;
+    right:10px !important;
+    font-size:.82rem !important;
+  }
+}
+
+@media (max-width:390px){
+  .recorrido-shirt-card{
+    flex-basis:82vw !important;
+    width:82vw !important;
+  }
+}
+
+@media (prefers-reduced-motion:reduce){
+  .recorrido-shirt-card{
+    transform:none !important;
+    opacity:1 !important;
+    transition:none !important;
+  }
+
+  .recorrido-shirt-card img{
+    transform:none !important;
+    transition:none !important;
+  }
+}
