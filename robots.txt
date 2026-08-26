@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Cambia tudominio.mx por el dominio definitivo antes de publicar
+Sitemap: https://tudominio.mx/sitemap.xml

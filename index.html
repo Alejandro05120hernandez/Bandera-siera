@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+
+<html lang="es-MX">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BANDERA SIERA · Historia, Museo Digital y Recorrido de la Insurgencia 2026</title>
+<meta content="Museo Digital de la BANDERA SIERA: historia insurgente, Juan Moctezuma y Cortés, simbolismo, memoria gráfica, ruta de 14 municipios, programa y canal oficial del Recorrido de la Insurgencia 2026." name="description"/>
+<!-- PEGA AQUÍ EL ENLACE REAL DE TU CANAL DE WHATSAPP -->
+<meta content="https://whatsapp.com/channel/0029VbD61J62kNFk6paMZz09" name="whatsapp-channel-url"/>
+<link href="assets/css/styles.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<!-- Poppins y Lora son los respaldos web gratuitos de Avenir Next y Athelas (ver nota en styles.css) -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&amp;family=Lora:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<!-- Leaflet: librería de mapas gratuita basada en OpenStreetMap, sin necesidad de API key -->
+<link href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" rel="stylesheet"/>
+</head>
+<body>
+<!-- ============ ENCABEZADO ============ -->
+<header class="site-header">
+<div class="wrap header-inner">
+<a class="brand" href="#inicio">
+<img alt="BANDERA SIERA" class="isotipo" src="assets/images/branding/bandera-logo.png"/>
+<span>
+<span class="brand-text">SIERA</span>
+<span class="brand-sub">Recorrido de la Insurgencia</span>
+</span>
+</a>
+<nav aria-label="Navegación principal" class="main-nav" id="mainNav">
+<a href="#historia">Historia</a>
+<a href="#museo">Museo Digital</a>
+<a href="#recorrido">Recorrido</a>
+<a href="#programa">Programa</a>
+<a href="#canal-whatsapp">Canal Oficial</a>
+</nav>
+<div class="header-actions">
+<a class="btn btn-outline header-alert-btn js-whatsapp-channel" href="#canal-whatsapp">
+<svg aria-hidden="true" viewbox="0 0 24 24"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.7A8.5 8.5 0 1 1 20.5 11.5Z"></path><path d="M8.2 8.2c.4 3 2.6 5.2 5.6 5.6"></path></svg>
+        Unirme al canal
+      </a>
+<button aria-controls="mainNav" aria-expanded="false" aria-label="Abrir menú" class="nav-toggle" id="navToggle">
+<span></span><span></span><span></span>
+</button>
+</div>
+</div>
+</header>
+<main>
+<!-- ============ HERO ============ -->
+<section class="hero" id="inicio">
+<div aria-hidden="true" class="pano-static-bg hero-pano-bg"></div>
+<!-- Himno de fondo. El video permanece siempre sin sonido. -->
+<audio class="background-audio" id="himnoBackground" loop="" preload="metadata">
+<source src="assets/audio/himno.mp3" type="audio/mpeg"/>
+</audio>
+<div class="wrap hero-inner">
+<div class="hero-text">
+<p class="hero-kicker"><span aria-hidden="true" class="rule"></span> Sierra de Zongolica · Puebla &amp; Veracruz</p>
+<h1 class="hero-title">Siera</h1>
+<p class="hero-subtitle">Recorrido de la Insurgencia</p>
+<p class="hero-tagline"><span class="arrow">→</span> Zongolica 2026 – 2029 <span aria-hidden="true" class="line"></span></p>
+<p class="hero-sub">La BANDERA SIERA es una insignia insurgente vinculada a la Sierra de Zongolica y a la memoria de los pueblos que participaron en la Independencia de México. Cada 15 de septiembre, su recorrido vuelve a unir a 14 municipios de Puebla y Veracruz.</p>
+<div class="hero-cta">
+<a class="btn btn-primary" href="#historia">Conocer la historia</a>
+<a class="btn btn-ghost" href="#programa">Consultar el programa</a>
+</div>
+</div>
+</div>
+<div aria-hidden="true" class="hero-scroll-cue">
+<span>Desliza para explorar</span>
+<i></i>
+</div>
+</section>
+<!-- ============ INTRODUCCIÓN ============ -->
+<section class="section" id="introduccion">
+<div class="wrap">
+<h2 class="eyebrow eyebrow-green">Introducción</h2>
+<span aria-hidden="true" class="eyebrow-rule green"></span>
+<div class="intro-grid intro-grid--single">
+<div class="intro-copy">
+<p>El <strong>Recorrido de la Insurgencia o de la BANDERA SIERA</strong> es una tradición nacida en <strong>1989</strong> que <strong>mantiene viva la memoria de la lucha independentista en las Altas Montañas</strong>. Cada año, corredores de distintos municipios llevan en relevos la <strong>BANDERA SIERA</strong> desde <strong>Tehuacán, Puebla, hasta Zongolica, Veracruz</strong>, atravesando <strong>más de 14 municipios</strong> donde es recibida con honores.</p>
+<p>Este recorrido rinde homenaje a las <strong>mujeres y hombres que lucharon por la Independencia</strong> bajo el mando del cura <strong>Juan Moctezuma y Cortés</strong>, cobijados por la <strong>BANDERA SIERA</strong>, considerada, de acuerdo con investigaciones históricas, <strong>una de las primeras enseñas tricolores de México</strong>. Más que un recorrido, es <strong>memoria, identidad y orgullo que avanza de generación en generación</strong>.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- ============ PREPÁRATE PARA EL RECORRIDO ============ -->
+<section class="section event-promise" id="preparate">
+<div class="wrap event-promise-simple">
+<h2 class="event-promise-simple-title">Prepárate para el recorrido</h2>
+<p class="event-promise-simple-text"><strong>Conoce la historia, explora el Museo Digital, revisa la ruta de 150 km y consulta el programa del 15 de septiembre. Para avisos y novedades de la jornada, sigue el Canal Oficial de WhatsApp.</strong></p>
+</div>
+</section>
+<!-- ============ HISTORIA RESUMIDA ============ -->
+<section class="section section-tint story-chapter story-chapter--independencia" id="historia">
+<div class="wrap">
+<header class="story-chapter-header">
+<p class="eyebrow eyebrow-green">Historia insurgente</p>
+<span aria-hidden="true" class="eyebrow-rule green"></span>
+<h2>Secundación de la Independencia y <span>Juan Moctezuma y Cortés</span></h2>
+<p class="section-lead">La memoria histórica de Zongolica vincula la organización insurgente de la Sierra con el sacerdote Juan Moctezuma y Cortés y con la participación activa de comunidades indígenas en la lucha por la Independencia.</p>
+</header>
+<div class="story-context-card">
+<div class="story-context-number">1811</div>
+<div>
+<span class="story-context-kicker">ZONGOLICA, VERACRUZ</span>
+<h3>La Secundación de la Independencia en la Sierra</h3>
+<p>Los documentos reunidos para este museo describen un contexto de abuso, explotación y sometimiento hacia la población indígena, condiciones que la memoria regional identifica como un trato cercano a la esclavitud. En ese escenario surgió la organización de grupos serranos vinculados a la causa insurgente.</p>
+<p class="story-context-highlight"><strong>En 1811, en Zongolica, Veracruz,</strong> los documentos consultados registran indicios de organización insurgente en la región y relacionan a Juan Moctezuma y Cortés con la movilización de los pueblos de la Sierra.</p>
+</div>
+</div>
+<div class="story-hero-layout">
+<figure class="story-media story-media--portrait">
+<img alt="Busto de Juan Moctezuma y Cortés" loading="lazy" src="assets/images/people/juan moctezuma estatua.jpg"/>
+<figcaption><strong>Juan Moctezuma y Cortés</strong><span>1754–1816</span></figcaption>
+</figure>
+<div class="story-copy">
+<span class="story-label">Figura central de la insurgencia serrana</span>
+<h3>Del trabajo pastoral a la organización insurgente</h3>
+<p>Como sacerdote vinculado a la parroquia de San Francisco de Asís de Zongolica, mantuvo contacto directo con comunidades indígenas de la Sierra. El compendio lo presenta como una figura que conoció las condiciones de desigualdad de la región y que posteriormente se integró a la causa insurgente.</p>
+<p>La documentación histórica lo relaciona con redes insurgentes vinculadas a <strong>Miguel Hidalgo, José María Morelos y Nicolás Bravo</strong>, así como con acciones desarrolladas entre Zongolica, Tehuacán, Acultzingo y Orizaba.</p>
+<div class="story-key-date">
+<span>FECHA CLAVE</span>
+<strong>1811 · Zongolica, Veracruz</strong>
+<p>Secundación de la Independencia y organización del movimiento insurgente serrano.</p>
+</div>
+</div>
+</div>
+<div class="story-documents">
+<figure class="story-doc-card">
+<img alt="Retrato histórico de Juan Moctezuma y Cortés" loading="lazy" src="assets/images/people/JUAN MOCTEZUMA  Y CORTEZ.jpg"/>
+<figcaption><strong>Retrato histórico</strong><span>Juan Moctezuma y Cortés</span></figcaption>
+</figure>
+<figure class="story-doc-card">
+<img alt="Documento histórico sobre el levantamiento insurgente" loading="lazy" src="assets/images/history/mapi-06-levantamiento.jpg"/>
+<figcaption><strong>Documento histórico</strong><span>Indicios de insurgencia en Veracruz · 1811</span></figcaption>
+</figure>
+<figure class="story-doc-card">
+<img alt="Documento histórico relacionado con la organización insurgente" loading="lazy" onerror="this.closest('figure').classList.add('is-missing')" src="assets/images/history/conformacion historica.jpg"/>
+<figcaption><strong>Registro documental</strong><span>Referencias a sacerdotes vinculados con la organización insurgente</span></figcaption>
+</figure>
+</div>
+<div aria-label="Momentos clave de Juan Moctezuma y Cortés" class="story-timeline">
+<article><span>01</span><div><small>ZONGOLICA</small><h3>Vínculo con las comunidades indígenas</h3><p>Su labor pastoral lo acercó a la población serrana y a las condiciones sociales que marcaron la región.</p></div></article>
+<article><span>02</span><div><small>1811</small><h3>Secundación de la Independencia</h3><p><strong>Zongolica, Veracruz</strong>, aparece en los documentos como un punto de organización insurgente en la Sierra.</p></div></article>
+<article><span>03</span><div><small>RED INSURGENTE</small><h3>Articulación regional</h3><p>La memoria documental lo relaciona con Morelos, Nicolás Bravo y otros actores del movimiento insurgente.</p></div></article>
+<article><span>04</span><div><small>1816</small><h3>Tehuacán</h3><p>Fue nombrado comisario de Tehuacán y falleció ese mismo año, de acuerdo con la reseña histórica integrada al museo.</p></div></article>
+</div>
+</div>
+</section>
+<!-- ============ JUAN MOCTEZUMA Y CORTÉS ============ -->
+<!-- ============ VALORES ============ -->
+<!-- ============ MUSEO DIGITAL ============ -->
+<section class="section museum-gateway bandera-story-section" id="museo">
+<div class="wrap">
+<header class="story-chapter-header">
+<p class="eyebrow eyebrow-green">Museo Digital</p>
+<span aria-hidden="true" class="eyebrow-rule green"></span>
+<h2>La <span>BANDERA SIERA</span></h2>
+<p class="section-lead">Una insignia insurgente vinculada a la Sierra de Zongolica, reconocida por su composición tricolor y por un emblema que reúne arco, carcaj, nueve flechas y sable o machete.</p>
+</header>
+<div class="story-hero-layout bandera-story-hero">
+<figure class="story-media story-media--flag">
+<img alt="BANDERA SIERA" loading="lazy" src="assets/images/history/mapi-01-portada.jpg"/>
+<figcaption><strong>BANDERA SIERA</strong><span>Verde · Blanco · Rojo</span></figcaption>
+</figure>
+<div class="story-copy">
+<span class="story-label">Insignia de la insurgencia serrana</span>
+<h3>Forma, dimensiones y significado</h3>
+<p>La BANDERA SIERA mide aproximadamente <strong>2.10 m de ancho por 1.72 m de alto</strong>. Está integrada por tres franjas verticales en verde, blanco y rojo bermellón. Sobre el lienzo blanco aparece el conjunto formado por carcaj, nueve flechas, arco y sable o machete, además de la palabra <strong>“SIERA”</strong>.</p>
+<p>Su diseño se relaciona con la identidad regional y con símbolos insurgentes que también aparecen en monedas troqueladas en Zongolica durante 1812.</p>
+<a class="museum-gateway-link" href="#simbolismo">Explorar la anatomía del escudo →</a>
+</div>
+</div>
+<div class="bandera-visual-pair">
+<figure class="story-doc-card story-doc-card--wide">
+<img alt="Representación histórica de la BANDERA SIERA durante la Independencia" loading="lazy" src="assets/images/history/mapi-04-independencia.jpg"/>
+<figcaption><strong>La BANDERA SIERA en la memoria insurgente</strong><span>Representación histórica vinculada con la lucha regional.</span></figcaption>
+</figure>
+<figure class="story-doc-card story-doc-card--wide">
+<img alt="Kuauhtototl" loading="lazy" src="assets/images/history/kuawtototl1.jpg"/>
+<figcaption><strong>Kuauhtototl</strong><span>Tradición oral vinculada con los colores verde, blanco y rojo.</span></figcaption>
+</figure>
+</div>
+<aside class="kuauhtototl-story-card bandera-legend-card">
+<div aria-hidden="true" class="kuauhtototl-story-mark">✦</div>
+<div>
+<span>Tradición oral de Zongolica</span>
+<h3>La leyenda del Kuauhtototl</h3>
+<p>La tradición zongoliqueña cuenta que el <em>Kuauhtototl</em>, ave de plumaje verde, blanco y rojizo, no soporta vivir en cautiverio. Este relato fue transmitido como una metáfora de libertad y resistencia, y la memoria regional lo relaciona con los tres colores de la BANDERA SIERA.</p>
+</div>
+</aside>
+<div class="bandera-story-timeline">
+<article><span>01</span><div><small>SIERRA DE ZONGOLICA</small><h3>Símbolo insurgente</h3><p>La bandera aparece vinculada con las fuerzas serranas y con la organización insurgente regional.</p></div></article>
+<article><span>02</span><div><small>1812</small><h3>Cerro del Borrego · Orizaba</h3><p>El compendio la relaciona con acciones insurgentes desarrolladas en Orizaba y con el entorno del Cerro del Borrego.</p></div></article>
+<article><span>03</span><div><small>CAMPAÑAS REGIONALES</small><h3>De la Sierra hacia otros puntos</h3><p>La memoria histórica la vincula posteriormente con recorridos por Córdoba, Fortín, Coscomatepec y Huatusco, dentro del movimiento insurgente.</p></div></article>
+<article><span>04</span><div><small>DESPUÉS DE LA INDEPENDENCIA</small><h3>Regreso y resguardo en Zongolica</h3><p>La tradición documental señala que la BANDERA SIERA regresó a Zongolica y permaneció durante años bajo resguardo de la familia Castillo.</p></div></article>
+<article><span>05</span><div><small>RESGUARDO FEDERAL</small><h3>Castillo de Chapultepec</h3><p>Posteriormente, un familiar la entregó al gobierno federal y el ejemplar quedó bajo resguardo del Museo Nacional de Historia en el Castillo de Chapultepec.</p></div></article>
+</div>
+<div class="bandera-researcher-card">
+<figure class="bandera-researcher-media">
+<img alt="Carolina Baur Arenas" loading="lazy" src="assets/images/people/CAROLINA BAUR ARENAS.jpg"/>
+</figure>
+<div class="bandera-researcher-copy">
+<span class="story-label">Redescubrimiento documental</span>
+<h3>Carolina Baur Arenas y la recuperación de su memoria</h3>
+<p>La investigadora Carolina Baur Arenas documentó nuevamente la BANDERA SIERA en sus investigaciones sobre las banderas históricas de México. Su trabajo ayudó a reinsertar la pieza en la conversación histórica nacional.</p>
+<p>En esa documentación, la BANDERA SIERA es reconocida como <strong>uno de los primeros símbolos tricolores del país</strong>, lo que refuerza su importancia como antecedente dentro de la historia de los emblemas mexicanos.</p>
+</div>
+<figure class="bandera-book-media story-media" data-missing-copy="Agrega la imagen del libro en assets/images/history/mapi-17-libro-carolina-baur.jpg">
+<img alt="Libro de Carolina Baur Arenas sobre las banderas históricas de México" loading="lazy" onerror="this.closest('figure').classList.add('is-missing')" src="assets/images/history/mapi-17-libro-carolina-baur.jpg"/>
+<figcaption><strong>Investigación publicada</strong><span>Documentación histórica de la BANDERA SIERA.</span></figcaption>
+</figure>
+</div>
+</div>
+</section>
+<!-- ============ SIMBOLISMO ============ -->
+<section class="section simbolismo-video-section" id="simbolismo">
+<div aria-hidden="true" class="pano-static-bg simbolismo-pano-bg"></div>
+<div aria-hidden="true" class="simbolismo-video-overlay"></div>
+<div class="wrap simbolismo-video-content">
+<h2 class="eyebrow">Simbolismo</h2>
+<span aria-hidden="true" class="eyebrow-rule red"></span>
+<div class="simbolismo-grid">
+<div>
+<div class="simbolismo-flag">
+<img alt="BANDERA SIERA ondeando, con sus franjas verde, blanco y rojo y el escudo al centro" loading="lazy" src="assets/images/branding/simbolo.png"/>
+</div>
+<div class="simbolismo-note">
+<p>La <strong>BANDERA SIERA</strong> mide aproximadamente <strong>2.10 m de ancho por 1.72 m de alto</strong> y está formada por franjas verticales verde, blanca y rojo bermellón. En la franja central se concentra el emblema insurgente y la inscripción “SIERA”. En esta sección también puedes reproducir el <strong>Himno a la BANDERA SIERA</strong>, con letra y música del <strong>Profr. Heladio Celis Lara</strong>.</p>
+</div>
+</div>
+<div>
+<div class="simbolismo-shield-audio">
+<div class="simbolismo-shield">
+<img alt="Escudo de la BANDERA SIERA" class="isotipo" src="assets/images/branding/bandera-logo.png"/>
+</div>
+<button aria-label="Reproducir himno" aria-pressed="false" class="himno-symbol-button" id="himnoToggle" type="button">
+<span aria-hidden="true" class="himno-symbol-icon">▶</span>
+<span class="himno-symbol-label">Reproducir himno a la BANDERA SIERA</span>
+</button>
+</div>
+<div class="simbolo-defs">
+<div>
+<h4>Flechas</h4>
+<p>Un haz de nueve flechas emerge de la parte superior del carcaj y corona visualmente el conjunto.</p>
+</div>
+<div>
+<h4>Sable</h4>
+<p>Sable o machete de hoja curva, cruzado en el centro de la composición como elemento de carácter insurgente.</p>
+</div>
+<div>
+<h4>Carcaj</h4>
+<p>Ocupa el centro del emblema y contiene el haz de nueve flechas que asciende desde su abertura.</p>
+</div>
+<div>
+<h4>Arco</h4>
+<p>Arco estilizado de dos curvas que atraviesa la composición y se relaciona visualmente con el carcaj y el sable.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ============ EL RECORRIDO ============ -->
+<section class="section section-tint section-feature" id="recorrido">
+<div class="wrap">
+<h2 class="eyebrow eyebrow-green">El recorrido de la insurgencia</h2>
+<span aria-hidden="true" class="eyebrow-rule green"></span>
+<p class="section-lead">La tradición contemporánea comenzó en 1989 como una marcha conmemorativa para mantener viva la memoria de la insurgencia serrana. Con el paso de los años se convirtió en un recorrido de relevos que reúne a municipios, corredores, autoridades y comunidades cada 15 de septiembre.</p>
+<div class="hymn-annex">
+<figure class="hymn-author-photo story-media" data-missing-copy="Agrega la fotografía del Profr. Heladio Celis Lara en assets/images/people/heladio celis.jpg">
+<img alt="Profr. Heladio Celis Lara" loading="lazy" onerror="this.closest('figure').classList.add('is-missing')" src="assets/images/people/heladio celis.jpg"/>
+</figure>
+<div class="hymn-annex-copy">
+<span class="story-label">Anexo musical</span>
+<h3>Himno a la BANDERA SIERA</h3>
+<p><strong>Letra y música: Profr. Heladio Celis Lara.</strong> El himno recuerda los colores asociados al Kuauhtototl, las rutas insurgentes por Tehuacán, Acultzingo y Orizaba, el sable, las flechas y el carcaj, así como las monedas troqueladas en plata y cobre.</p>
+<audio class="hymn-inline-player" controls="" preload="metadata"><source src="assets/audio/himno.mp3" type="audio/mpeg"/></audio>
+</div>
+</div>
+<div class="recorrido-origin-story">
+<div class="recorrido-origin-copy">
+<span class="story-label">1989 · origen de una tradición</span>
+<h3>De una reunión comunitaria al Recorrido de la Insurgencia</h3>
+<p>Integrantes de la Casa de la Cultura y Culturas Populares de Zongolica se reunieron en la cooperativa de apicultores conocida como la “Casa de las Abejas”. Allí tomó forma la propuesta de realizar una marcha que recordara la participación insurgente de la Sierra.</p>
+<p>La idea fue impulsada por el <strong>Profr. Amadeo Méndez López</strong> y recibió respaldo institucional de autoridades de Zongolica y Orizaba. El <strong>15 de septiembre de 1989</strong>, cerca de 40 corredores partieron desde Orizaba rumbo a Zongolica con la BANDERA SIERA.</p>
+<div class="recorrido-origin-facts"><span>1989</span><span>Orizaba → Zongolica</span><span>≈ 40 corredores</span></div>
+</div>
+<div class="recorrido-origin-media-grid">
+<figure class="recorrido-origin-media"><img alt="Reunión relacionada con el origen del recorrido" loading="lazy" src="assets/images/route/reunion.jpg"/><figcaption>Reunión de organización</figcaption></figure>
+<figure class="recorrido-origin-media"><img alt="Integrantes de la Casa de Cultura en 1989" loading="lazy" src="assets/images/route/INTEGRANTES DE CASA DE CULTURA 1989.jpg"/><figcaption>Casa de Cultura · 1989</figcaption></figure>
+<figure class="recorrido-origin-media"><img alt="Salida del recorrido en Orizaba en 1989" loading="lazy" src="assets/images/route/ORIZABA,PALACIO DE HIERRO 1989.jpg"/><figcaption>Orizaba · Palacio de Hierro · 1989</figcaption></figure>
+</div>
+</div>
+
+<!-- ============ PLAYERAS CONMEMORATIVAS DEL RECORRIDO ============ -->
+<article class="recorrido-shirts-showcase" aria-labelledby="playerasRecorridoTitle">
+  <div class="recorrido-shirts-header">
+    <div>
+      <span class="story-label">Memoria textil del recorrido</span>
+      <h3 id="playerasRecorridoTitle">Playeras conmemorativas de los Recorridos</h3>
+      <p>Una muestra de las playeras que han acompañado distintas ediciones del Recorrido de la Insurgencia.</p>
+    </div>
+  </div>
+
+  <div class="recorrido-shirts-panels">
+    <div class="recorrido-shirts-track">
+      <figure class="recorrido-shirt-card">
+        <img src="assets/images/people/Playeras conmemorativas de los Recorridos/01_1995_Playera_Bandera-Siera_sin-mangas.png" alt="1995 · BANDERA SIERA · playera sin mangas" loading="lazy"/>
+        <figcaption>1995 · BANDERA SIERA · playera sin mangas</figcaption>
+      </figure>
+      <figure class="recorrido-shirt-card">
+        <img src="assets/images/people/Playeras conmemorativas de los Recorridos/02_1996_Playera_Templo-de-Zongolica_tricolor.png" alt="1996 · Templo de Zongolica · tricolor" loading="lazy"/>
+        <figcaption>1996 · Templo de Zongolica · tricolor</figcaption>
+      </figure>
+      <figure class="recorrido-shirt-card">
+        <img src="assets/images/people/Playeras conmemorativas de los Recorridos/03_X-Recorrido_Playera-Siera_verde-rojo.png" alt="X Recorrido · BANDERA SIERA · verde y rojo" loading="lazy"/>
+        <figcaption>X Recorrido · BANDERA SIERA · verde y rojo</figcaption>
+      </figure>
+      <figure class="recorrido-shirt-card">
+        <img src="assets/images/people/Playeras conmemorativas de los Recorridos/04_VI-Recorrido_Playera-sin-mangas_reverso.png" alt="VI Recorrido · playera sin mangas · reverso" loading="lazy"/>
+        <figcaption>VI Recorrido · playera sin mangas · reverso</figcaption>
+      </figure>
+      <figure class="recorrido-shirt-card">
+        <img src="assets/images/people/Playeras conmemorativas de los Recorridos/05_1996_Inicio-de-la-Independencia_1810-1996.png" alt="1996 · Inicio de la Independencia · 1810–1996" loading="lazy"/>
+        <figcaption>1996 · Inicio de la Independencia · 1810–1996</figcaption>
+      </figure>
+      <figure class="recorrido-shirt-card">
+        <img src="assets/images/people/Playeras conmemorativas de los Recorridos/06_X-Recorrido_Playera_texto-amarillo.png" alt="X Recorrido · texto amarillo" loading="lazy"/>
+        <figcaption>X Recorrido · texto amarillo</figcaption>
+      </figure>
+      <figure class="recorrido-shirt-card">
+        <img src="assets/images/people/Playeras conmemorativas de los Recorridos/07_2000_Playera_Zongolica_1810-2000.png" alt="2000 · Zongolica · 1810–2000" loading="lazy"/>
+        <figcaption>2000 · Zongolica · 1810–2000</figcaption>
+      </figure>
+      <figure class="recorrido-shirt-card">
+        <img src="assets/images/people/Playeras conmemorativas de los Recorridos/08_XI-Recorrido_Playera_reverso.png" alt="XI Recorrido · reverso" loading="lazy"/>
+        <figcaption>XI Recorrido · reverso</figcaption>
+      </figure>
+      <figure class="recorrido-shirt-card">
+        <img src="assets/images/people/Playeras conmemorativas de los Recorridos/09_XII-Recorrido_Playera_paisaje.png" alt="XII Recorrido · paisaje" loading="lazy"/>
+        <figcaption>XII Recorrido · paisaje</figcaption>
+      </figure>
+      <figure class="recorrido-shirt-card">
+        <img src="assets/images/people/Playeras conmemorativas de los Recorridos/10_2001_Playera_Zongolica-Veracruz_1810-2001.png" alt="2001 · Zongolica, Veracruz · 1810–2001" loading="lazy"/>
+        <figcaption>2001 · Zongolica, Veracruz · 1810–2001</figcaption>
+      </figure>
+      <figure class="recorrido-shirt-card">
+        <img src="assets/images/people/Playeras conmemorativas de los Recorridos/11_Recorrido_Playera_Bandera-Siera_emblema.png" alt="Recorrido · BANDERA SIERA · emblema" loading="lazy"/>
+        <figcaption>Recorrido · BANDERA SIERA · emblema</figcaption>
+      </figure>
+      <figure class="recorrido-shirt-card">
+        <img src="assets/images/people/Playeras conmemorativas de los Recorridos/12_Playera_Bandera-Siera_Zongolica-Veracruz_2001-2004.png" alt="BANDERA SIERA · Zongolica, Veracruz · 2001–2004" loading="lazy"/>
+        <figcaption>BANDERA SIERA · Zongolica, Veracruz · 2001–2004</figcaption>
+      </figure>
+      <figure class="recorrido-shirt-card">
+        <img src="assets/images/people/Playeras conmemorativas de los Recorridos/13_2005_Playera_Ayuntamiento-Zongolica_Bandera-Siera.png" alt="2005 · Ayuntamiento de Zongolica · BANDERA SIERA" loading="lazy"/>
+        <figcaption>2005 · Ayuntamiento de Zongolica · BANDERA SIERA</figcaption>
+      </figure>
+      <figure class="recorrido-shirt-card">
+        <img src="assets/images/people/Playeras conmemorativas de los Recorridos/14_XVII-Recorrido_Playera_Cuauhtototl.png" alt="XVII Recorrido · Cuauhtototl" loading="lazy"/>
+        <figcaption>XVII Recorrido · Cuauhtototl</figcaption>
+      </figure>
+      <figure class="recorrido-shirt-card">
+        <img src="assets/images/people/Playeras conmemorativas de los Recorridos/15_Playera-Polo_Bandera-Siera.png" alt="Playera polo · BANDERA SIERA" loading="lazy"/>
+        <figcaption>Playera polo · BANDERA SIERA</figcaption>
+      </figure>
+      <figure class="recorrido-shirt-card">
+        <img src="assets/images/people/Playeras conmemorativas de los Recorridos/16_XXII-Recorrido_Playera_frente.png" alt="XXII Recorrido · frente" loading="lazy"/>
+        <figcaption>XXII Recorrido · frente</figcaption>
+      </figure>
+      <figure class="recorrido-shirt-card">
+        <img src="assets/images/people/Playeras conmemorativas de los Recorridos/17_XXII-Recorrido_Playera_municipios_reverso.png" alt="XXII Recorrido · municipios · reverso" loading="lazy"/>
+        <figcaption>XXII Recorrido · municipios · reverso</figcaption>
+      </figure>
+      <figure class="recorrido-shirt-card">
+        <img src="assets/images/people/Playeras conmemorativas de los Recorridos/18_2006_Playera_Zongolica_emblema.png" alt="2006 · Zongolica · emblema" loading="lazy"/>
+        <figcaption>2006 · Zongolica · emblema</figcaption>
+      </figure>
+      <figure class="recorrido-shirt-card">
+        <img src="assets/images/people/Playeras conmemorativas de los Recorridos/19_2006_XVIII-Recorrido_Playera_municipios_reverso.png" alt="2006 · XVIII Recorrido · municipios · reverso" loading="lazy"/>
+        <figcaption>2006 · XVIII Recorrido · municipios · reverso</figcaption>
+      </figure>
+      <figure class="recorrido-shirt-card">
+        <img src="assets/images/people/Playeras conmemorativas de los Recorridos/20_2003_Playera_Zongolica_Bandera-Siera.png" alt="2003 · Zongolica · BANDERA SIERA" loading="lazy"/>
+        <figcaption>2003 · Zongolica · BANDERA SIERA</figcaption>
+      </figure>
+      <figure class="recorrido-shirt-card">
+        <img src="assets/images/people/Playeras conmemorativas de los Recorridos/21_XVI-Recorrido_Playera_Cuauhtototl_reverso.png" alt="XVI Recorrido · Cuauhtototl · reverso" loading="lazy"/>
+        <figcaption>XVI Recorrido · Cuauhtototl · reverso</figcaption>
+      </figure>
+      <figure class="recorrido-shirt-card">
+        <img src="assets/images/people/Playeras conmemorativas de los Recorridos/22_XX-Recorrido_Playera_corredor_frente.png" alt="XX Recorrido · corredor · frente" loading="lazy"/>
+        <figcaption>XX Recorrido · corredor · frente</figcaption>
+      </figure>
+      <figure class="recorrido-shirt-card">
+        <img src="assets/images/people/Playeras conmemorativas de los Recorridos/23_XX-Recorrido_Playera_municipios_reverso.png" alt="XX Recorrido · municipios · reverso" loading="lazy"/>
+        <figcaption>XX Recorrido · municipios · reverso</figcaption>
+      </figure>
+      <figure class="recorrido-shirt-card">
+        <img src="assets/images/people/Playeras conmemorativas de los Recorridos/24_2002_XIII-Recorrido_Playera_frente.png" alt="2002 · XIII Recorrido · frente" loading="lazy"/>
+        <figcaption>2002 · XIII Recorrido · frente</figcaption>
+      </figure>
+      <figure class="recorrido-shirt-card">
+        <img src="assets/images/people/Playeras conmemorativas de los Recorridos/25_2002_XIII-Recorrido_Playera_Juan-Moctezuma_reverso.png" alt="2002 · XIII Recorrido · Juan Moctezuma · reverso" loading="lazy"/>
+        <figcaption>2002 · XIII Recorrido · Juan Moctezuma · reverso</figcaption>
+      </figure>
+      <figure class="recorrido-shirt-card">
+        <img src="assets/images/people/Playeras conmemorativas de los Recorridos/26_2006_XVIII-Recorrido_Playera_Zongolica.png" alt="2006 · XVIII Recorrido · Zongolica" loading="lazy"/>
+        <figcaption>2006 · XVIII Recorrido · Zongolica</figcaption>
+      </figure>
+    </div>
+  </div>
+</article>
+<div class="route-stats">
+<div class="route-stat">
+<span aria-hidden="true" class="route-stat-icon"><svg viewbox="0 0 24 24"><path d="M3 12h18M3 12l4-4M3 12l4 4M21 12l-4-4M21 12l-4 4" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+<div><span class="route-stat-num">150</span><span class="route-stat-label">Kilómetros</span></div>
+</div>
+<div class="route-stat">
+<span aria-hidden="true" class="route-stat-icon"><svg viewbox="0 0 24 24"><path d="M12 21s7-7.4 7-12a7 7 0 10-14 0c0 4.6 7 12 7 12z"></path><circle cx="12" cy="9" r="2.4"></circle></svg></span>
+<div><span class="route-stat-num">14</span><span class="route-stat-label">Municipios</span></div>
+</div>
+<div class="route-stat">
+<span aria-hidden="true" class="route-stat-icon"><svg viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3.5 3" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+<div><span class="route-stat-num">1</span><span class="route-stat-label">Sola jornada</span></div>
+</div>
+</div>
+<h3 class="route-subtitle">La ruta, parada por parada</h3>
+<ol class="timeline">
+<li class="timeline-item timeline-start">
+<span class="timeline-node">1</span>
+<div class="timeline-content"><h4>Tehuacán</h4><p>Punto de salida · Puebla</p></div>
+</li>
+<li class="timeline-item">
+<span class="timeline-node">2</span>
+<div class="timeline-content"><h4>Acultzingo</h4><p>Veracruz</p></div>
+</li>
+<li class="timeline-item">
+<span class="timeline-node">3</span>
+<div class="timeline-content"><h4>Maltrata</h4><p>Veracruz</p></div>
+</li>
+<li class="timeline-item">
+<span class="timeline-node">4</span>
+<div class="timeline-content"><h4>Ciudad Mendoza</h4><p>Veracruz</p></div>
+</li>
+<li class="timeline-item">
+<span class="timeline-node">5</span>
+<div class="timeline-content"><h4>Huiloapan de Cuauhtémoc</h4><p>Veracruz</p></div>
+</li>
+<li class="timeline-item">
+<span class="timeline-node">6</span>
+<div class="timeline-content"><h4>Nogales</h4><p>Veracruz</p></div>
+</li>
+<li class="timeline-item">
+<span class="timeline-node">7</span>
+<div class="timeline-content"><h4>Río Blanco</h4><p>Veracruz</p></div>
+</li>
+<li class="timeline-item">
+<span class="timeline-node">8</span>
+<div class="timeline-content"><h4>Orizaba</h4><p>Veracruz</p></div>
+</li>
+<li class="timeline-item">
+<span class="timeline-node">9</span>
+<div class="timeline-content"><h4>Rafael Delgado</h4><p>Veracruz</p></div>
+</li>
+<li class="timeline-item">
+<span class="timeline-node">10</span>
+<div class="timeline-content"><h4>Tlilapan</h4><p>Veracruz</p></div>
+</li>
+<li class="timeline-item">
+<span class="timeline-node">11</span>
+<div class="timeline-content"><h4>San Andrés Tenejapan</h4><p>Veracruz</p></div>
+</li>
+<li class="timeline-item">
+<span class="timeline-node">12</span>
+<div class="timeline-content"><h4>Tequila</h4><p>Veracruz</p></div>
+</li>
+<li class="timeline-item">
+<span class="timeline-node">13</span>
+<div class="timeline-content"><h4>Los Reyes</h4><p>Veracruz</p></div>
+</li>
+<li class="timeline-item timeline-end">
+<span class="timeline-node">14</span>
+<div class="timeline-content"><h4>Zongolica</h4><p>Arribo final · Grito de Independencia · Veracruz</p></div>
+</li>
+</ol>
+<div class="route-map-header">
+<div>
+<h3 class="route-subtitle route-subtitle-map">
+<span aria-hidden="true" class="route-map-icon">
+<svg viewbox="0 0 24 24"><path d="M9 20l-6-3V4l6 3 6-3 6 3v13l-6-3-6 3zM9 7v13M15 4v13" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</span>
+            Explora el mapa interactivo
+          </h3>
+<p class="section-lead route-map-lead">Consulta las 14 paradas de la ruta, identifica el punto de salida en Tehuacán y la llegada en Zongolica, y utiliza el mapa para ubicar cada municipio y abrir indicaciones de cómo llegar.</p>
+</div>
+<div class="route-map-badges">
+<span class="route-map-badge"><strong>150</strong>km</span>
+<span class="route-map-badge"><strong>14</strong>municipios</span>
+<span class="route-map-badge"><strong>1</strong>jornada</span>
+</div>
+</div>
+<div class="route-map-frame">
+<div class="route-map-wrap">
+<div aria-label="Mapa del recorrido de la BANDERA SIERA, de Tehuacán a Zongolica" class="route-map" id="routeMap" role="img"></div>
+</div>
+</div>
+<div class="route-legend">
+<span class="route-legend-item"><span aria-hidden="true" class="route-legend-dot start"></span> Salida</span>
+<span class="route-legend-item"><span aria-hidden="true" class="route-legend-dot stop"></span> Parada numerada</span>
+<span class="route-legend-item"><span aria-hidden="true" class="route-legend-dot end"></span> Meta</span>
+<span class="route-legend-item"><span aria-hidden="true" class="route-legend-dot current"></span> Punto destacado</span>
+<span class="route-legend-note">Toca cualquier punto para consultar sus detalles y abrir la ruta en Google Maps</span>
+</div>
+</div>
+</section>
+<!-- ============ PROGRAMA DEL 15 DE SEPTIEMBRE ============ -->
+<section class="section agenda-section" id="programa">
+<div class="wrap">
+<div class="agenda-header">
+<div>
+<p class="eyebrow eyebrow-red">Programa público</p>
+<span aria-hidden="true" class="eyebrow-rule red"></span>
+<h2>Trigésimo Quinto Recorrido de la Insurgencia</h2>
+<p class="section-lead">Programa del 15 de septiembre de 2026: recorridos comunitarios, reseñas históricas, actividades culturales y arribo de los atletas con la BANDERA SIERA a Zongolica.</p>
+</div>
+<div class="agenda-side"><div aria-label="Trigésimo quinto recorrido en Zongolica, Veracruz" class="agenda-date-badge">
+<div><strong>XXXV Recorrido</strong><span>Zongolica · Veracruz</span></div>
+</div><figure class="program-shirt-card" data-missing-copy="Agrega la playera conmemorativa en assets/images/program/playera conmemorativa.png">
+<img alt="Playera conmemorativa del XXXV Recorrido de la Insurgencia" loading="lazy" onerror="this.closest('figure').classList.add('is-missing')" src="assets/images/program/playera conmemorativa.png"/>
+<figcaption><strong>Playera conmemorativa</strong><span>XXXV Recorrido de la Insurgencia · 2026</span></figcaption>
+</figure></div></div>
+<!-- Autoridad municipal vinculada a la edición 2026 -->
+<article class="program-authority-card">
+<figure class="program-authority-photo" data-missing-copy="Agrega la fotografía del Presidente Municipal en assets/images/officials/presidente-ignacio-ramirez-flores.jpg">
+<img alt="Fotografía del Lic. Ignacio Ramírez Flores, Presidente Municipal de Zongolica" loading="lazy" onerror="this.closest('figure').classList.add('is-missing')" src="assets/images/officials/presidente-ignacio-ramirez-flores.jpg"/>
+</figure>
+<div class="program-authority-content">
+<div class="program-authority-brand">
+<img alt="BANDERA SIERA" src="assets/images/branding/bandera-logo.png"/>
+<span>Administración Municipal</span>
+</div>
+<p class="program-authority-period">2026 – 2029</p>
+<span class="program-authority-label">Presidente Municipal</span>
+<h3>Lic. Ignacio Ramírez Flores</h3>
+<p class="program-authority-role">H. Ayuntamiento de Zongolica, Veracruz</p>
+<div class="program-authority-meta">
+<div>
+<span>Cobertura del recorrido</span>
+<strong>14 municipios · Puebla y Veracruz</strong>
+</div>
+<div>
+<span>Edición</span>
+<strong>XXXV Recorrido de la Insurgencia · 2026</strong>
+</div>
+</div>
+</div>
+</article>
+<div class="agenda-list">
+<article class="agenda-item">
+<time class="agenda-time" datetime="2026-09-15T16:00:00-06:00">4:00 p. m.</time>
+<div class="agenda-content"><h3>Recorrido de las niñas y los niños</h3><p>Salida afuera del COBAEV y llegada al Palacio Municipal para abrir las actividades de la tarde.</p></div>
+<span class="agenda-tag">Recorrido</span>
+</article>
+<article class="agenda-item">
+<time class="agenda-time" datetime="2026-09-15T16:30:00-06:00">4:30 p. m.</time>
+<div class="agenda-content"><h3>Reseña histórica para niñas y niños</h3><p>Lectura breve adaptada para acercar la historia de la BANDERA SIERA a niñas y niños.</p></div>
+<span class="agenda-tag">Historia</span>
+</article>
+<article class="agenda-item">
+<time class="agenda-time" datetime="2026-09-15T17:00:00-06:00">5:00 p. m.</time>
+<div class="agenda-content"><h3>Recorrido comunitario</h3><p>Participación de Xochiojca, El Porvenir y Comalapa, con llegada al Palacio Municipal.</p></div>
+<span class="agenda-tag">Comunidades</span>
+</article>
+<article class="agenda-item agenda-item-compact">
+<time class="agenda-time" datetime="2026-09-15T17:40:00-06:00">5:40 p. m.</time>
+<div class="agenda-content"><h3>Lectura de una reseña</h3><p>Lectura histórica como enlace entre los distintos contingentes de la jornada.</p></div>
+<span class="agenda-tag">Memoria</span>
+</article>
+<article class="agenda-item">
+<time class="agenda-time" datetime="2026-09-15T18:00:00-06:00">6:00 p. m.</time>
+<div class="agenda-content"><h3>Recorrido de Mixtla de Altamirano</h3><p>Salida desde el terreno del Sr. Domingo Alfaro, colonia Indeco, y llegada al Palacio Municipal.</p></div>
+<span class="agenda-tag">Municipios</span>
+</article>
+<article class="agenda-item agenda-item-compact">
+<time class="agenda-time" datetime="2026-09-15T18:30:00-06:00">6:30 p. m.</time>
+<div class="agenda-content"><h3>Lectura de una reseña</h3><p>Reseña histórica previa al siguiente recorrido municipal.</p></div>
+<span class="agenda-tag">Memoria</span>
+</article>
+<article class="agenda-item">
+<time class="agenda-time" datetime="2026-09-15T19:00:00-06:00">7:00 p. m.</time>
+<div class="agenda-content"><h3>Recorrido de San Juan Texhuacan</h3><p>Salida desde el terreno del Sr. Domingo Alfaro, colonia Indeco, y llegada al Palacio Municipal.</p></div>
+<span class="agenda-tag">Municipios</span>
+</article>
+<article class="agenda-item agenda-item-compact">
+<time class="agenda-time" datetime="2026-09-15T19:30:00-06:00">7:30 p. m.</time>
+<div class="agenda-content"><h3>Lectura de una reseña</h3><p>Lectura de memoria histórica antes del inicio del programa cultural y literario.</p></div>
+<span class="agenda-tag">Memoria</span>
+</article>
+<article class="agenda-item agenda-item-cultural">
+<time class="agenda-time" datetime="2026-09-15T20:00:00-06:00">8:00 p. m.</time>
+<div class="agenda-content">
+<h3>Programa cultural y literario</h3>
+<p>Presentaciones musicales y de danza programadas durante la noche, previas al arribo de los corredores.</p>
+<details class="cultural-program">
+<summary>Ver cartelera cultural</summary>
+<ol>
+<li><time>8:00–8:20</time><span>Vocalista Noemí Gabriela Hernández Gálvez.</span></li>
+<li><time>8:25–8:40</time><span>Ballet Folklórico del Telebachillerato de Totolacatla: “Aguascalientes”.</span></li>
+<li><time>8:45–9:00</time><span>Vocalista Dasha Flores Domínguez.</span></li>
+<li><time>9:05–9:30</time><span>Ballet Folklórico El Tenango.</span></li>
+<li><time>9:35–9:50</time><span>Ballet Folklórico de la Casa de Cultura Zongolica: “Jalisco”.</span></li>
+<li><time>9:55–10:10</time><span>Vocalista Gabriel Husai Lara Pulido.</span></li>
+</ol>
+</details>
+</div>
+<span class="agenda-tag">Cultura</span>
+</article>
+<article class="agenda-item is-highlight">
+<time class="agenda-time" datetime="2026-09-15T22:30:00-06:00">10:30 p. m.</time>
+<div class="agenda-content"><h3>Arribo de los corredores con la BANDERA SIERA</h3><p>Llegada de los corredores con la BANDERA SIERA y recepción en la cabecera municipal.</p></div>
+<span class="agenda-tag">Momento central</span>
+</article>
+<article class="agenda-item">
+<time class="agenda-time" datetime="2026-09-15T23:00:00-06:00">11:00 p. m.</time>
+<div class="agenda-content"><h3>Grito, reseña y acto conmemorativo</h3><p>Grito, reseña histórica y acto conmemorativo “Promulgación de la Independencia” para cerrar la jornada cívica.</p></div>
+<span class="agenda-tag">Ceremonia</span>
+</article>
+</div>
+<p class="agenda-note"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 8v5M12 17h.01"></path></svg> Programa preliminar sujeto a ajustes. Los cambios y avisos oficiales se comunicarán también mediante el canal de WhatsApp.</p>
+</div>
+</section>
+<!-- ============ GALERÍA ============ -->
+<section class="section" id="galeria">
+<div class="wrap">
+<h2 class="eyebrow eyebrow-white">Memoria gráfica</h2>
+<span aria-hidden="true" class="eyebrow-rule white"></span>
+<p class="section-lead">La Memoria Gráfica reúne documentos, monedas, personajes, reuniones, exposiciones y registros del recorrido, desde los antecedentes insurgentes hasta las ediciones contemporáneas, para conservar la historia visual de la BANDERA SIERA.</p>
+<div class="gallery-panels">
+<div class="gallery-grid">
+<figure class="gallery-item"><img alt="BANDERA SIERA" loading="lazy" src="assets/images/history/mapi-01-portada.jpg"/><figcaption>BANDERA SIERA</figcaption></figure>
+<figure class="gallery-item"><img alt="Juan Moctezuma y Cortés" loading="lazy" src="assets/images/people/JUAN MOCTEZUMA  Y CORTEZ.jpg"/><figcaption>Juan Moctezuma y Cortés</figcaption></figure>
+<figure class="gallery-item"><img alt="Movimiento insurgente en la Sierra de Zongolica" loading="lazy" src="assets/images/history/mapi-04-independencia.jpg"/><figcaption>Movimiento insurgente en la Sierra de Zongolica</figcaption></figure>
+<figure class="gallery-item"><img alt="El levantamiento insurgente" loading="lazy" src="assets/images/history/mapi-06-levantamiento.jpg"/><figcaption>El levantamiento insurgente</figcaption></figure>
+<figure class="gallery-item"><img alt="Secundación del Grito de Independencia en Zongolica" loading="lazy" src="assets/images/history/A.C.J,M en Zongolica ver.jpg"/><figcaption>A.C.J,M en Zongolica ver</figcaption></figure>
+<figure class="gallery-item"><img alt="Cerro del Borrego" loading="lazy" src="assets/images/history/mapi-10-cerro-del-borrego.jpg"/><figcaption>Cerro del Borrego</figcaption></figure>
+<figure class="gallery-item"><img alt="Nicolás Bravo" loading="lazy" src="assets/images/people/mapi-11-nicolas-bravo.jpg"/><figcaption>Nicolás Bravo</figcaption></figure>
+<figure class="gallery-item"><img alt="Puente del Rey" loading="lazy" src="assets/images/history/mapi-12-puente-del-rey.jpg"/><figcaption>Puente del Rey</figcaption></figure>
+<figure class="gallery-item"><img alt="Guadalupe Victoria · 1825" loading="lazy" src="assets/images/people/GUADALUPE VICTORIA ,1825.jpg"/><figcaption>Guadalupe Victoria · 1825</figcaption></figure>
+<figure class="gallery-item"><img alt="Acta de Cabildo · 1905" loading="lazy" src="assets/images/history/mapi-07-acta-cabildo-1905.jpg"/><figcaption>Acta de Cabildo · 1905</figcaption></figure>
+<figure class="gallery-item"><img alt="Zongolica, Veracruz" loading="lazy" src="assets/images/history/ZONGOLICA VER.jpg"/><figcaption>Zongolica, Veracruz</figcaption></figure>
+<figure class="gallery-item"><img alt="Carolina Baur Arenas" loading="lazy" src="assets/images/people/CAROLINA BAUR ARENAS.jpg"/><figcaption>Carolina Baur Arenas</figcaption></figure>
+<figure class="gallery-item"><img alt="Placa de conmemoración" loading="lazy" src="assets/images/history/placa de conmemoracion.jpg"/><figcaption>Placa de conmemoración</figcaption></figure>
+<figure class="gallery-item"><img alt="Kuawtototl" loading="lazy" src="assets/images/history/kuawtototl1.jpg"/><figcaption>Kuawtototl</figcaption></figure>
+<figure class="gallery-item"><img alt="Reales" loading="lazy" src="assets/images/history/reales.jpg"/><figcaption>Reales</figcaption></figure>
+<figure class="gallery-item"><img alt="Información de centenarios" loading="lazy" src="assets/images/history/infro centenarios.jpg"/><figcaption>Información de centenarios</figcaption></figure>
+<figure class="gallery-item"><img alt="Moneda de Morelos" loading="lazy" src="assets/images/history/moneda morelos.jpg"/><figcaption>Moneda de Morelos</figcaption></figure>
+<figure class="gallery-item"><img alt="Reunión" loading="lazy" src="assets/images/route/reunion.jpg"/><figcaption>Reunión</figcaption></figure>
+<figure class="gallery-item"><img alt="Juan Moctezuma y Cortés · estatua" loading="lazy" src="assets/images/people/juan moctezuma estatua.jpg"/><figcaption>Juan Moctezuma y Cortés · estatua</figcaption></figure>
+<figure class="gallery-item"><img alt="Primer Recorrido de la bandera Siera de Orizaba a Zongolica" loading="lazy" src="assets/images/route/Primer Recorrido de la bandera Siera de Orizaba a Zongolica/Primer Recorrido de la bandera Siera de Orizaba a Zongolica.jpg"/><figcaption>Primer Recorrido de la bandera Siera de Orizaba a Zongolica </figcaption></figure>
+<figure class="gallery-item"><img alt="Primer Recorrido de la bandera Siera de Orizaba a Zongolica" loading="lazy" src="assets/images/route/Primer Recorrido de la bandera Siera de Orizaba a Zongolica/Primer Recorrido de la bandera Siera de Orizaba a Zongolica (2).jpg"/><figcaption>Primer Recorrido de la bandera Siera de Orizaba a Zongolica ( 2)</figcaption></figure>
+<figure class="gallery-item"><img alt="Primer Recorrido de la bandera Siera de Orizaba a Zongolica" loading="lazy" src="assets/images/route/Primer Recorrido de la bandera Siera de Orizaba a Zongolica/Primer Recorrido de la bandera Siera de Orizaba a Zongolica (3).jpg"/><figcaption>Primer Recorrido de la bandera Siera de Orizaba a Zongolica ( 3)</figcaption></figure>
+<figure class="gallery-item"><img alt="Primer Recorrido de la bandera Siera de Orizaba a Zongolica" loading="lazy" src="assets/images/route/Primer Recorrido de la bandera Siera de Orizaba a Zongolica/Primer Recorrido de la bandera Siera de Orizaba a Zongolica (4).jpg"/><figcaption>Primer Recorrido de la bandera Siera de Orizaba a Zongolica ( 4)</figcaption></figure>
+<figure class="gallery-item"><img alt="Primer Recorrido de la bandera Siera de Orizaba a Zongolica" loading="lazy" src="assets/images/route/Primer Recorrido de la bandera Siera de Orizaba a Zongolica/Primer Recorrido de la bandera Siera de Orizaba a Zongolica (5).jpg"/><figcaption>Primer Recorrido de la bandera Siera de Orizaba a Zongolica ( 5)</figcaption></figure>
+<figure class="gallery-item"><img alt="Primer Recorrido de la bandera Siera de Orizaba a Zongolica" loading="lazy" src="assets/images/route/Primer Recorrido de la bandera Siera de Orizaba a Zongolica/Primer Recorrido de la bandera Siera de Orizaba a Zongolica (6).jpg"/><figcaption>Primer Recorrido de la bandera Siera de Orizaba a Zongolica ( 6)</figcaption></figure>
+<figure class="gallery-item"><img alt="Primer Recorrido de la bandera Siera de Orizaba a Zongolica" loading="lazy" src="assets/images/route/Primer Recorrido de la bandera Siera de Orizaba a Zongolica/Primer Recorrido de la bandera Siera de Orizaba a Zongolica (7).jpg"/><figcaption>Primer Recorrido de la bandera Siera de Orizaba a Zongolica ( 7)</figcaption></figure>
+<figure class="gallery-item"><img alt="IV Recorrido de la Bandera Siera saliendo de Maltrata" loading="lazy" src="assets/images/route/IV Recorrido de la Bandera Siera saliendo de Maltrata/IV Recorrido de la Bandera Siera saliendo de Maltrata.jpg"><figcaption>IV Recorrido de la Bandera Siera saliendo de Maltrata</figcaption>/</figure>
+<figure class="gallery-item"><img alt="IV Recorrido de la Bandera Siera saliendo de Maltrata" loading="lazy" src="assets/images/route/IV Recorrido de la Bandera Siera saliendo de Maltrata/IV Recorrido de la Bandera Siera saliendo de Maltrata (2).jpg"><figcaption>IV Recorrido de la Bandera Siera saliendo de Maltrata(2)</figcaption>/</figure>
+<figure class="gallery-item"><img alt="IV Recorrido de la Bandera Siera saliendo de Maltrata" loading="lazy" src="assets/images/route/IV Recorrido de la Bandera Siera saliendo de Maltrata/IV Recorrido de la Bandera Siera saliendo de Maltrata (3).jpg"><figcaption>IV Recorrido de la Bandera Siera saliendo de Maltrata(3)</figcaption>/</figure>
+<figure class="gallery-item"><img alt="IV Recorrido de la Bandera Siera saliendo de Maltrata" loading="lazy" src="assets/images/route/IV Recorrido de la Bandera Siera saliendo de Maltrata/IV Recorrido de la Bandera Siera saliendo de Maltrata (4).jpg"><figcaption>IV Recorrido de la Bandera Siera saliendo de Maltrata</figcaption>/</figure>
+<figure class="gallery-item"><img alt="IV Recorrido de la Bandera Siera saliendo de Maltrata" loading="lazy" src="assets/images/route/IV Recorrido de la Bandera Siera saliendo de Maltrata/IV Recorrido de la Bandera Siera saliendo de Maltrata (5).jpg"><figcaption>IV Recorrido de la Bandera Siera saliendo de Maltrata(5)</figcaption>/</figure>
+<figure class="gallery-item"><img alt="Honores a la bandera" loading="lazy" src="assets/images/route/honores ala bandera.jpg"/><figcaption>Honores a la bandera</figcaption></figure>
+<figure class="gallery-item"><img alt="Recorrido" loading="lazy" src="assets/images/route/recorrido.jpg"/><figcaption>Recorrido</figcaption></figure>
+<figure class="gallery-item"><img alt="Recorrido a Orizaba" loading="lazy" src="assets/images/route/recorrido a orizaba.jpg"/><figcaption>Recorrido a Orizaba</figcaption></figure>s <figure class="gallery-item"><img alt="Corredores del medio rural · BANDERA SIERA" loading="lazy" src="assets/images/route/corredores-del medio rural -bandera siera.jpg"/><figcaption>Corredores del medio rural · BANDERA SIERA</figcaption></figure>
+<figure class="gallery-item"><img alt="Integrantes de la Casa de Cultura · 1989" loading="lazy" src="assets/images/route/INTEGRANTES DE CASA DE CULTURA 1989.jpg"/><figcaption>Integrantes de la Casa de Cultura · 1989</figcaption></figure>
+<figure class="gallery-item"><img alt="Orizaba, Palacio de Hierro · 1989" loading="lazy" src="assets/images/route/ORIZABA,PALACIO DE HIERRO 1989.jpg"/><figcaption>Orizaba, Palacio de Hierro · 1989</figcaption></figure>
+<figure class="gallery-item"><img alt="Orizaba · 16 sep. 1993" loading="lazy" src="assets/images/route/16-sep-1993 orizaba.jpg"/><figcaption>Orizaba · 16 sep. 1993</figcaption></figure>
+<figure class="gallery-item"><img alt="Escuela" loading="lazy" src="assets/images/route/escuela.jpg"/><figcaption>Escuela</figcaption></figure>
+<figure class="gallery-item"><img alt="Recorrido Siera" loading="lazy" src="assets/images/route/recorrido siera.jpg"/><figcaption>Recorrido Siera</figcaption></figure>
+<figure class="gallery-item"><img alt="Exposición sobre la BANDERA SIERA" loading="lazy" src="assets/images/route/mapi-25-exposicion.jpg"/><figcaption>Exposición sobre la BANDERA SIERA</figcaption></figure>
+<figure class="gallery-item"><img alt="Exposición sobre la BANDERA SIERA" loading="lazy" src="assets/images/route/mapi-26-exposicion.jpg"/><figcaption>Exposición sobre la BANDERA SIERA</figcaption></figure>
+<figure class="gallery-item"><img alt="Exposición sobre la BANDERA SIERA" loading="lazy" src="assets/images/route/mapi-27-exposicion.jpg"/><figcaption>Exposición sobre la BANDERA SIERA</figcaption></figure>
+<figure class="gallery-item"><img alt="Casa de Cultura de Zongolica" loading="lazy" src="assets/images/route/mapi-28-casa-de-cultura.jpg"/><figcaption>Casa de Cultura de Zongolica</figcaption></figure>
+<figure class="gallery-item"><img alt="Orizaba · 1990" loading="lazy" src="assets/images/route/ORIZABA-1990.jpg"/><figcaption>Orizaba · 1990</figcaption></figure>
+<figure class="gallery-item"><img alt="Orizaba Sur 11 · 1990" loading="lazy" src="assets/images/route/ORIZABA SUR 11 1990.jpg"/><figcaption>Orizaba Sur 11 · 1990</figcaption></figure>
+<figure class="gallery-item"><img alt="Carretera Orizaba–Zongolica · 1990" loading="lazy" src="assets/images/route/CARRETERA ORIZABA ZONGOLICA 1990.jpg"/><figcaption>Carretera Orizaba–Zongolica · 1990</figcaption></figure>
+<figure class="gallery-item"><img alt="Llegada a Zongolica · septiebre 1990" loading="lazy" src="assets/images/route/LLEGADA A ZONGOLICA SEPTIEMBRE 1990.jpg"/><figcaption>Llegada a Zongolica · septiembre 1990</figcaption></figure>
+<figure class="gallery-item"><img alt="Recorrido por Orizaba" loading="lazy" src="assets/images/route/mapi-29-orizaba.jpg"/><figcaption>Recorrido por Orizaba</figcaption></figure>
+<figure class="gallery-item"><img alt="Recorrido por Orizaba" loading="lazy" src="assets/images/route/mapi-30-orizaba.jpg"/><figcaption>Recorrido por Orizaba</figcaption></figure>
+<figure class="gallery-item"><img alt="Recorrido de la BANDERA SIERA" loading="lazy" src="assets/images/route/mapi-31-recorrido.jpg"/><figcaption>Recorrido de la BANDERA SIERA</figcaption></figure>
+<figure class="gallery-item"><img alt="Recorrido de la BANDERA SIERA" loading="lazy" src="assets/images/route/mapi-32-recorrido.jpg"/><figcaption>Recorrido de la BANDERA SIERA</figcaption></figure>
+<figure class="gallery-item"><img alt="Recorrido de la BANDERA SIERA" loading="lazy" src="assets/images/route/mapi-33-recorrido.jpg"/><figcaption>Recorrido de la BANDERA SIERA</figcaption></figure>
+<figure class="gallery-item"><img alt="Recorrido de la BANDERA SIERA" loading="lazy" src="assets/images/route/mapi-34-recorrido.jpg"/><figcaption>Recorrido de la BANDERA SIERA</figcaption></figure>
+<figure class="gallery-item"><img alt="Recorrido de la BANDERA SIERA" loading="lazy" src="assets/images/route/mapi-35-recorrido.jpg"/><figcaption>Recorrido de la BANDERA SIERA</figcaption></figure>
+<figure class="gallery-item"><img alt="Jalapilla" loading="lazy" src="assets/images/route/JALAPILLA.jpg"/><figcaption>Jalapilla</figcaption></figure>
+<figure class="gallery-item"><img alt="Tequila" loading="lazy" src="assets/images/route/mapi-37-tequila.jpg"/><figcaption>Tequila</figcaption></figure>
+<figure class="gallery-item"><img alt="Zongolica" loading="lazy" src="assets/images/route/mapi-38-zongolica.jpg"/><figcaption>Zongolica</figcaption></figure>
+<figure class="gallery-item"><img alt="Zongolica" loading="lazy" src="assets/images/route/mapi-39-zongolica.jpg"/><figcaption>Zongolica</figcaption></figure>
+<figure class="gallery-item"><img alt="Recibimiento a los atletas de Xochiojca portando la BANDERA SIERA" loading="lazy" src="assets/images/route/RECIBIENDO A  LOS ATLETAS DE XOCHIOJCA PORTANDO LA BANDERA SIERA.jpg"/><figcaption>Recibimiento a los atletas de Xochiojca portando la BANDERA SIERA</figcaption></figure>
+<figure class="gallery-item"><img alt="Recorrido de la BANDERA SIERA de Zongolica a Tepetitlanapa" loading="lazy" src="assets/images/route/RECORRIDO DE LA BANDERA SIERA DE ZONGOLICA A TEPETITLANAPA.jpg"/><figcaption>Recorrido de la BANDERA SIERA de Zongolica a Tepetitlanapa</figcaption></figure>
+<figure class="gallery-item"><img alt="Recorrido de la BANDERA SIERA de Zongolica a Tepetitlanapa · cabalgata" loading="lazy" src="assets/images/route/Recorrido de la bandera siera de zongolica a tepetitlanapa cabalgata.jpg"/><figcaption>Recorrido de la BANDERA SIERA de Zongolica a Tepetitlanapa · cabalgata</figcaption></figure>
+<figure class="gallery-item"><img alt="Honores a la BANDERA SIERA · Escuela Primaria Francisco I. Madero" loading="lazy" src="assets/images/route/HONORES A LA BANDERA SIERA POR LOS ALUMNOS DE LA ESCUELA PRIMARIA FRANCISCO I MADERO.jpg"/><figcaption>Honores a la BANDERA SIERA · Escuela Primaria Francisco I. Madero</figcaption></figure>
+<figure class="gallery-item"><img alt="Orizaba, Veracruz · H. Ayuntamiento Constitucional 2005–2007" loading="lazy" src="assets/images/route/Orizaba, Veracruz (H. Ayuntamiento Constitucional 2005-2007).jpg"/><figcaption>Orizaba, Veracruz · H. Ayuntamiento Constitucional 2005–2007</figcaption></figure>
+<figure class="gallery-item"><img alt="Tehuacán" loading="lazy" src="assets/images/route/mapi-40-tehuacan.jpg"/><figcaption>Tehuacán</figcaption></figure>
+<figure class="gallery-item"><img alt="Acultzingo" loading="lazy" src="assets/images/route/mapi-41-acultzingo.jpg"/><figcaption>Acultzingo</figcaption></figure>
+<figure class="gallery-item"><img alt="Orizaba" loading="lazy" src="assets/images/route/mapi-42-orizaba.jpg"/><figcaption>Orizaba</figcaption></figure>
+<figure class="gallery-item"><img alt="BANDERA SIERA · Río Blancom" loading="lazy" src="assets/images/route/bandera-siera-rio-blanco.jpg"/><figcaption>BANDERA SIERA · Río Blanco</figcaption></figure>
+<figure class="gallery-item"><img alt="BANDERA SIERA · Huiloapan" loading="lazy" src="assets/images/route/bandera-siera-huiloapan.jpg"/><figcaption>BANDERA SIERA · Huiloapan</figcaption></figure>
+<figure class="gallery-item"><img alt="Orizaba · XXXIV Recorrido" loading="lazy" src="assets/images/route/orizaba xxIv.jpg"/><figcaption>Orizaba · XXXIV Recorrido</figcaption></figure>
+<figure class="gallery-item"><img alt="Integrantes de la Organización Deportiva Municipal" loading="lazy" src="assets/images/route/integrantes de la Organización Deportiva Municipal/integrantes de la Organización Deportiva Municipal.png"/><figcaption>Integrantes de la Organización Deportiva Municipal</figcaption></figure>
+<figure class="gallery-item"><img alt="Recorrido de los 30 años · alcalde Juan Carlos Mezhua Campos · 1" loading="lazy" src="assets/images/route/recorrido de los 30 años alcalde juan carlos mezhua campos/recorrido de los 30 años alcalde juan carlos mezhua campos.jpg"/><figcaption>Recorrido de los 30 años · alcalde Juan Carlos Mezhua Campos · 1</figcaption></figure>
+<figure class="gallery-item"><img alt="Recorrido de los 30 años · alcalde Juan Carlos Mezhua Campos · 2" loading="lazy" src="assets/images/route/recorrido de los 30 años alcalde juan carlos mezhua campos/recorrido de los 30 años alcalde juan carlos mezhua campos (2).jpg"/><figcaption>Recorrido de los 30 años · alcalde Juan Carlos Mezhua Campos · 2</figcaption></figure>
+<figure class="gallery-item"><img alt="Recorrido de los 30 años · alcalde Juan Carlos Mezhua Campos · 3" loading="lazy" src="assets/images/route/recorrido de los 30 años alcalde juan carlos mezhua campos/recorrido de los 30 años alcalde juan carlos mezhua campos (3).jpg "/><figcaption>Recorrido de los 30 años · alcalde Juan Carlos Mezhua Campos · 3</figcaption></figure>
+<figure class="gallery-item"><img alt="Recorrido de los 30 años · alcalde Juan Carlos Mezhua Campos · 4" loading="lazy" src="assets/images/route/recorrido de los 30 años alcalde juan carlos mezhua campos/recorrido de los 30 años alcalde juan carlos mezhua campos (4).jpg"/><figcaption>Recorrido de los 30 años · alcalde Juan Carlos Mezhua Campos · 4</figcaption></figure>
+<figure class="gallery-item"><img alt="Recorrido de los 30 años · alcalde Juan Carlos Mezhua Campos · 5" loading="lazy" src="assets/images/route/recorrido de los 30 años alcalde juan carlos mezhua campos/recorrido de los 30 años alcalde juan carlos mezhua campos (5).jpg"/><figcaption>Recorrido de los 30 años · alcalde Juan Carlos Mezhua Campos · 5</figcaption></figure>
+<figure class="gallery-item"><img alt="Recorrido de los 30 años · alcalde Juan Carlos Mezhua Campos · 6" loading="lazy" src="assets/images/route/recorrido de los 30 años alcalde juan carlos mezhua campos/recorrido de los 30 años alcalde juan carlos mezhua campos (6).jpg"/><figcaption>Recorrido de los 30 años · alcalde Juan Carlos Mezhua Campos · 6</figcaption></figure>
+<figure class="gallery-item"><img alt="Recorrido de los 30 años · alcalde Juan Carlos Mezhua Campos · 7" loading="lazy" src="assets/images/route/recorrido de los 30 años alcalde juan carlos mezhua campos/recorrido de los 30 años alcalde juan carlos mezhua campos (7).jpg"/><figcaption>Recorrido de los 30 años · alcalde Juan Carlos Mezhua Campos · 7</figcaption></figure>
+<figure class="gallery-item gallery-item--full"><img alt="Zongolica 2025 · Recorrido con diputada · 1" loading="lazy" src="assets/images/route/zongolica 2025 recorrido con diputada/zongolica 2025 recorrido con diputada.jpeg"/><figcaption>Zongolica 2025 · Recorrido con diputada · 1</figcaption></figure>
+<figure class="gallery-item"><img alt="Zongolica 2025 · Recorrido con diputada · 2" loading="lazy" src="assets/images/route/zongolica 2025 recorrido con diputada/zongolica 2025 recorrido con diputada (2).jpeg"/><figcaption>Zongolica 2025 · Recorrido con diputada · 2</figcaption></figure>
+<figure class="gallery-item"><img alt="Zongolica 2025 · Recorrido con diputada · 3" loading="lazy" src="assets/images/route/zongolica 2025 recorrido con diputada/zongolica 2025 recorrido con diputada (3).jpeg"/><figcaption>Zongolica 2025 · Recorrido con diputada · 3</figcaption></figure>
+<figure class="gallery-item"><img alt="Orizaba · 2025" loading="lazy" src="assets/images/route/orizaba 2025.jpg"/><figcaption>Orizaba · 2025</figcaption></figure>
+</div>
+</div>
+</div>
+</section>
+<!-- ============ CANAL DE WHATSAPP ============ -->
+<section class="section alerts-section whatsapp-section" id="canal-whatsapp">
+<div class="wrap alerts-grid">
+<div class="alerts-copy">
+<p class="eyebrow eyebrow-white">Mantente al pendiente</p>
+<span aria-hidden="true" class="eyebrow-rule white"></span>
+<h2>Canal Oficial · RECORRIDO DE LA INSURGENCIA 2026</h2>
+<p>Únete al canal oficial de WhatsApp para recibir avisos de logística, cambios de horario, información del programa y novedades durante la jornada del 15 de septiembre.</p>
+<ul class="alerts-benefits">
+<li><svg aria-hidden="true" viewbox="0 0 24 24"><path d="m5 12 4 4L19 6"></path></svg><span>Avisos de logística y coordinación del recorrido.</span></li>
+<li><svg aria-hidden="true" viewbox="0 0 24 24"><path d="m5 12 4 4L19 6"></path></svg><span>Cambios de horario, ruta o programa cultural.</span></li>
+<li><svg aria-hidden="true" viewbox="0 0 24 24"><path d="m5 12 4 4L19 6"></path></svg><span>Actualizaciones de la jornada y llegada de la BANDERA SIERA.</span></li>
+</ul>
+</div>
+<div class="alert-card whatsapp-card">
+<div aria-hidden="true" class="whatsapp-card-icon">
+<svg viewbox="0 0 24 24"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.7A8.5 8.5 0 1 1 20.5 11.5Z"></path><path d="M8.2 8.2c.4 3 2.6 5.2 5.6 5.6"></path></svg>
+</div>
+<p class="whatsapp-card-kicker">CANAL OFICIAL</p>
+<h3 class="whatsapp-channel-name">RECORRIDO DE LA INSURGENCIA 2026</h3>
+<h3>Recorrido de la BANDERA SIERA</h3>
+<p>Abre el canal y selecciona <strong>Seguir</strong> para mantenerte al pendiente de las novedades oficiales del evento.</p>
+<a class="btn btn-secondary btn-block whatsapp-main-button js-whatsapp-channel" href="https://whatsapp.com/channel/0029VbD61J62kNFk6paMZz09" rel="noopener" target="_blank">
+          Abrir canal de WhatsApp
+        </a>
+<p class="whatsapp-link-note">Disponible en WhatsApp para móvil y WhatsApp Web en computadora.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- ============ PIE DE PÁGINA ============ -->
+<footer class="site-footer">
+<div class="wrap footer-inner">
+<div>
+<div class="footer-brand">
+<img alt="BANDERA SIERA" class="isotipo" src="assets/images/branding/bandera-logo.png"/>
+<span class="footer-brand-text">SIERA</span>
+</div>
+<p>Museo Digital · Historia, memoria y Recorrido de la Insurgencia · Zongolica 2026–2029</p>
+</div>
+<p class="small">H. Ayuntamiento de Zongolica · Administración 2026–2029.</p>
+</div>
+</footer>
+<!-- CTA FIJO PARA MÓVIL -->
+<a class="mobile-alert-cta js-whatsapp-channel" href="#canal-whatsapp">
+<svg aria-hidden="true" viewbox="0 0 24 24"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.7A8.5 8.5 0 1 1 20.5 11.5Z"></path><path d="M8.2 8.2c.4 3 2.6 5.2 5.6 5.6"></path></svg>
+  Unirme al canal de WhatsApp
+</a>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="assets/js/script.js"></script>
+</body>
+</html>
