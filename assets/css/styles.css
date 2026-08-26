@@ -6850,3 +6850,431 @@ main > section.scroll-live-stage.is-in-view .eyebrow-rule{
       );
   }
 }
+
+
+/* ============================================================
+   AJUSTE FINAL · MURAL + RECUADROS BLANCO/VERDE + MAPA
+   - No cambia estructura ni distribución.
+   - Mantiene la paleta Valentine Red / Bottle Green / Desert Storm.
+   - Usa mural.jpg como fondo de las secciones claras.
+   ============================================================ */
+
+/* ---------- Mural de fondo en las secciones claras ---------- */
+#introduccion,
+#preparate,
+#historia,
+#museo,
+#recorrido,
+#programa{
+  position: relative;
+  isolation: isolate;
+  background: transparent !important;
+}
+
+#introduccion::before,
+#preparate::before,
+#historia::before,
+#museo::before,
+#recorrido::before,
+#programa::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-2;
+  pointer-events:none;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(247,248,248,.87) 0%,
+      rgba(247,248,248,.80) 48%,
+      rgba(247,248,248,.88) 100%
+    ),
+    url("../images/backgrounds/mural.jpg") center center / cover fixed no-repeat;
+}
+
+#introduccion::after,
+#preparate::after,
+#historia::after,
+#museo::after,
+#recorrido::after,
+#programa::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  background:
+    radial-gradient(
+      circle at 82% 18%,
+      rgba(3,105,77,.11) 0%,
+      rgba(3,105,77,.045) 35%,
+      rgba(3,105,77,0) 66%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(247,248,248,.20) 0%,
+      rgba(3,105,77,.025) 56%,
+      rgba(247,248,248,.18) 100%
+    );
+}
+
+/* Evita que pseudo-elementos previos de Historia/Recorrido
+   tapen el nuevo mural; mantiene sus líneas decorativas. */
+#historia > .wrap,
+#recorrido > .wrap,
+#programa > .wrap,
+#museo > .wrap,
+#introduccion > .wrap,
+#preparate > .wrap{
+  position:relative;
+  z-index:1;
+}
+
+/* ---------- Acabado de los recuadros: blanco difuminado a verde ---------- */
+#historia .story-context-card,
+#historia .story-doc-card,
+#historia .story-timeline article,
+
+#museo .story-media,
+#museo .story-doc-card,
+#museo .kuauhtototl-story-card,
+#museo .bandera-story-timeline article,
+#museo .bandera-researcher-card,
+
+#recorrido .hymn-annex,
+#recorrido .recorrido-origin-story,
+#recorrido .recorrido-origin-media,
+#recorrido .recorrido-shirts-showcase,
+#recorrido .route-stats,
+#recorrido .timeline-item,
+#recorrido .route-map-badge,
+#recorrido .route-map-frame,
+#recorrido .route-legend-item,
+
+#programa .agenda-date-badge,
+#programa .program-shirt-card,
+#programa .program-authority-card,
+#programa .agenda-item{
+  background:
+    linear-gradient(
+      135deg,
+      rgba(247,248,248,.96) 0%,
+      rgba(247,248,248,.92) 60%,
+      rgba(3,105,77,.115) 100%
+    ) !important;
+  border-color: rgba(3,105,77,.18) !important;
+  box-shadow:
+    0 14px 34px -24px rgba(3,105,77,.42),
+    0 2px 10px -4px rgba(26,26,24,.10) !important;
+  -webkit-backdrop-filter: blur(7px) saturate(1.04);
+  backdrop-filter: blur(7px) saturate(1.04);
+}
+
+/* Las imágenes/documentos conservan su apariencia, solo su base
+   toma un velo muy sutil verde/blanco. */
+#historia .story-doc-card img,
+#museo .story-media img,
+#museo .story-doc-card img,
+#recorrido .recorrido-origin-media img,
+#recorrido .recorrido-shirt-card img,
+#programa .program-shirt-card img,
+#programa .program-authority-photo img{
+  background:
+    radial-gradient(
+      circle at 50% 42%,
+      rgba(247,248,248,.99) 0%,
+      rgba(247,248,248,.95) 58%,
+      rgba(3,105,77,.07) 100%
+    ) !important;
+}
+
+/* Los pies de tarjetas también reciben el difuminado sin cambiar tipografía. */
+#historia .story-doc-card figcaption,
+#museo .story-media figcaption,
+#museo .story-doc-card figcaption,
+#programa .program-shirt-card figcaption{
+  background:
+    linear-gradient(
+      110deg,
+      rgba(247,248,248,.98) 0%,
+      rgba(247,248,248,.94) 72%,
+      rgba(3,105,77,.09) 100%
+    ) !important;
+}
+
+/* ---------- Mapa: marco integrado y estable ---------- */
+#recorrido .route-map-frame{
+  padding: 3px !important;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(247,248,248,.98) 0%,
+      rgba(3,105,77,.28) 50%,
+      rgba(247,248,248,.96) 100%
+    ) !important;
+}
+
+#recorrido .route-map-wrap{
+  background: rgba(247,248,248,.94) !important;
+}
+
+#routeMap{
+  position:relative;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(247,248,248,.98),
+      rgba(3,105,77,.08)
+    ) !important;
+}
+
+/* Estado de carga. Se quita automáticamente al cargar los mosaicos. */
+#routeMap.is-map-loading::after{
+  content:"Cargando mapa…";
+  position:absolute;
+  inset:0;
+  z-index:900;
+  display:grid;
+  place-items:center;
+  color:var(--verde-dark);
+  font-family:var(--titular);
+  font-weight:800;
+  font-size:.9rem;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(247,248,248,.94),
+      rgba(3,105,77,.10)
+    );
+  pointer-events:none;
+}
+
+/* Fallback visible solo si Leaflet o los mapas externos no cargan. */
+.route-map-fallback{
+  min-height:100%;
+  display:grid;
+  place-items:center;
+  padding:34px;
+  text-align:center;
+  color:var(--tinta);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(247,248,248,.97),
+      rgba(3,105,77,.11)
+    );
+}
+
+.route-map-fallback > div{
+  max-width:540px;
+}
+
+.route-map-fallback strong{
+  display:block;
+  margin-bottom:8px;
+  color:var(--verde-dark);
+  font-family:var(--titular);
+  font-size:1.1rem;
+}
+
+.route-map-fallback p{
+  margin:0 0 16px;
+  color:var(--tinta-suave);
+}
+
+.route-map-fallback a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:42px;
+  padding:9px 16px;
+  border-radius:999px;
+  color:var(--hueso);
+  background:var(--verde);
+  text-decoration:none;
+  font-weight:800;
+}
+
+/* Mejor comportamiento de Leaflet al estar dentro de secciones animadas. */
+#routeMap .leaflet-container,
+#routeMap .leaflet-pane,
+#routeMap .leaflet-map-pane{
+  max-width:none !important;
+}
+
+#routeMap:focus-visible{
+  outline:3px solid rgba(3,105,77,.35);
+  outline-offset:3px;
+}
+
+/* En móvil evitamos background-attachment: fixed por rendimiento. */
+@media (max-width:700px){
+  #introduccion::before,
+  #preparate::before,
+  #historia::before,
+  #museo::before,
+  #recorrido::before,
+  #programa::before{
+    background:
+      linear-gradient(
+        180deg,
+        rgba(247,248,248,.91) 0%,
+        rgba(247,248,248,.84) 50%,
+        rgba(247,248,248,.92) 100%
+      ),
+      url("../images/backgrounds/mural.jpg") center center / cover scroll no-repeat;
+  }
+
+  #historia .story-context-card,
+  #historia .story-doc-card,
+  #historia .story-timeline article,
+  #museo .story-media,
+  #museo .story-doc-card,
+  #museo .kuauhtototl-story-card,
+  #museo .bandera-story-timeline article,
+  #museo .bandera-researcher-card,
+  #recorrido .hymn-annex,
+  #recorrido .recorrido-origin-story,
+  #recorrido .recorrido-origin-media,
+  #recorrido .recorrido-shirts-showcase,
+  #recorrido .route-stats,
+  #recorrido .timeline-item,
+  #recorrido .route-map-badge,
+  #recorrido .route-map-frame,
+  #recorrido .route-legend-item,
+  #programa .agenda-date-badge,
+  #programa .program-shirt-card,
+  #programa .program-authority-card,
+  #programa .agenda-item{
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+  }
+}
+
+
+/* ============================================================
+   CORRECCIÓN FINAL · LEYENDA DEL KUAUHTOTOTL
+   El fondo conserva el blanco/verde; únicamente se corrige
+   el contraste del texto para hacerlo completamente legible.
+   ============================================================ */
+
+#museo .bandera-legend-card,
+#museo .kuauhtototl-story-card{
+  color: var(--tinta) !important;
+}
+
+#museo .bandera-legend-card > div > span,
+#museo .kuauhtototl-story-card > div > span{
+  color: var(--verde-dark) !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+}
+
+#museo .bandera-legend-card h3,
+#museo .kuauhtototl-story-card h3{
+  color: var(--tinta) !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+}
+
+#museo .bandera-legend-card p,
+#museo .kuauhtototl-story-card p{
+  color: var(--tinta-suave) !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+}
+
+#museo .bandera-legend-card p strong,
+#museo .kuauhtototl-story-card p strong,
+#museo .bandera-legend-card em,
+#museo .kuauhtototl-story-card em{
+  color: var(--verde-dark) !important;
+}
+
+#museo .kuauhtototl-story-mark{
+  color: var(--rojo) !important;
+  background: rgba(247,248,248,.72) !important;
+  border-color: rgba(3,105,77,.18) !important;
+}
+
+/* ============================================================
+   MAPA · ESTABILIDAD VISUAL
+   No cambia el tamaño ni la posición del mapa.
+   ============================================================ */
+
+#routeMap{
+  min-height: 360px;
+  isolation: isolate;
+  z-index: 1;
+}
+
+#routeMap .leaflet-pane,
+#routeMap .leaflet-control{
+  z-index: auto;
+}
+
+#routeMap .leaflet-map-pane{
+  z-index: 200;
+}
+
+#routeMap .leaflet-tile-pane{
+  z-index: 200;
+}
+
+#routeMap .leaflet-overlay-pane{
+  z-index: 400;
+}
+
+#routeMap .leaflet-marker-pane{
+  z-index: 600;
+}
+
+#routeMap .leaflet-tooltip-pane{
+  z-index: 650;
+}
+
+#routeMap .leaflet-popup-pane{
+  z-index: 700;
+}
+
+#routeMap .leaflet-control-container{
+  position: relative;
+  z-index: 800;
+}
+
+#routeMap .leaflet-tile{
+  max-width: none !important;
+  max-height: none !important;
+}
+
+#routeMap .leaflet-popup-content-wrapper,
+#routeMap .leaflet-popup-tip{
+  background: var(--hueso);
+  color: var(--tinta);
+}
+
+#routeMap .leaflet-popup-content{
+  margin: 0;
+}
+
+#routeMap .leaflet-control-zoom a{
+  color: var(--verde-dark);
+  background: rgba(247,248,248,.96);
+}
+
+#routeMap .leaflet-control-zoom a:hover{
+  color: var(--hueso);
+  background: var(--verde);
+}
+
+/* Si el mapa todavía está calculando dimensiones, no desaparece:
+   conserva un fondo legible y estable. */
+#routeMap.route-map-ready{
+  background: var(--hueso-2) !important;
+}
+
+@media (max-width:700px){
+  #routeMap{
+    min-height: 320px;
+  }
+}
