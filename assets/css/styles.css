@@ -2168,7 +2168,7 @@ a.is-disabled{
   color:var(--hueso);
   background:
     linear-gradient(rgba(2,45,34,.88), rgba(20,20,18,.9)),
-    url("../images/backgrounds/pano.png") center / cover no-repeat;
+    url("../images/backgrounds/pano.webp") center / cover no-repeat;
   background-attachment:fixed;
 }
 #galeria::before{
@@ -2356,7 +2356,7 @@ a.is-disabled{
   #simbolismo.simbolismo-video-section{
     background:
       linear-gradient(rgba(2,50,38,.90), rgba(15,18,17,.88)),
-      url("../images/backgrounds/pano.png") center / cover no-repeat;
+      url("../images/backgrounds/pano.webp") center / cover no-repeat;
   }
 }
 
@@ -4137,7 +4137,7 @@ a.is-disabled{
    AJUSTE 2026 — FONDO ESTÁTICO "PANO UNO" + EXPERIENCIA DE SCROLL
    ============================================================ */
 :root{
-  --pano-uno: url("../images/backgrounds/pano.png");
+  --pano-uno: url("../images/backgrounds/pano.webp");
 }
 
 html{
@@ -4160,7 +4160,7 @@ body{
 
 /* Portada principal: usa mural.jpg sin modificar los demás fondos. */
 .hero .hero-pano-bg{
-  background-image:url("../images/backgrounds/mural.jpg");
+  background-image:url("../images/backgrounds/mural.webp");
 }
 
 .pano-static-bg{
@@ -6713,7 +6713,7 @@ main > section.scroll-live-stage.is-in-view .eyebrow-rule{
       rgba(247,248,248,.82) 42%,
       rgba(247,248,248,.88) 100%
     ),
-    url("../images/backgrounds/mural.jpg") center 35% / cover no-repeat;
+    url("../images/backgrounds/mural.webp") center 35% / cover no-repeat;
 }
 
 /* Velo sutil en verde institucional para integrar la fotografía
@@ -6824,7 +6824,7 @@ main > section.scroll-live-stage.is-in-view .eyebrow-rule{
         rgba(247,248,248,.86) 48%,
         rgba(247,248,248,.92) 100%
       ),
-      url("../images/backgrounds/mural.jpg") center top / cover no-repeat;
+      url("../images/backgrounds/mural.webp") center top / cover no-repeat;
   }
 
   #historia .story-context-card,
@@ -6889,7 +6889,7 @@ main > section.scroll-live-stage.is-in-view .eyebrow-rule{
       rgba(247,248,248,.80) 48%,
       rgba(247,248,248,.88) 100%
     ),
-    url("../images/backgrounds/mural.jpg") center center / cover fixed no-repeat;
+    url("../images/backgrounds/mural.webp") center center / cover fixed no-repeat;
 }
 
 #introduccion::after,
@@ -7122,7 +7122,7 @@ main > section.scroll-live-stage.is-in-view .eyebrow-rule{
         rgba(247,248,248,.84) 50%,
         rgba(247,248,248,.92) 100%
       ),
-      url("../images/backgrounds/mural.jpg") center center / cover scroll no-repeat;
+      url("../images/backgrounds/mural.webp") center center / cover scroll no-repeat;
   }
 
   #historia .story-context-card,
@@ -8062,5 +8062,132 @@ main > section.scroll-live-stage.is-in-view .eyebrow-rule{
   .recorrido-shirt-card img{
     transform:none !important;
     transition:none !important;
+  }
+}
+
+
+/* ============================================================
+   CORRECCIÓN · LIBRO DE CAROLINA BAUR
+   Solo mejora la segunda imagen del bloque "Redescubrimiento documental".
+   No cambia grid, tamaños ni estructura.
+   ============================================================ */
+
+#museo .bandera-book-media{
+  position:relative !important;
+  overflow:hidden !important;
+  background:var(--hueso-2) !important;
+}
+
+#museo .bandera-book-media img{
+  width:100% !important;
+  height:100% !important;
+  min-height:270px !important;
+  padding:0 !important;
+  display:block !important;
+  object-fit:contain !important;
+  object-position:center center !important;
+  background:var(--hueso-2) !important;
+  opacity:1 !important;
+  filter:none !important;
+}
+
+/* El pie ya no tapa la mitad de la fotografía. */
+#museo .bandera-book-media figcaption{
+  position:absolute !important;
+  left:0 !important;
+  right:0 !important;
+  bottom:0 !important;
+  z-index:3 !important;
+  padding:34px 14px 10px !important;
+  display:flex !important;
+  flex-direction:column !important;
+  gap:2px !important;
+  color:var(--hueso) !important;
+  background:
+    linear-gradient(
+      to top,
+      rgba(4,34,26,.86) 0%,
+      rgba(4,34,26,.56) 46%,
+      rgba(4,34,26,0) 100%
+    ) !important;
+  pointer-events:none !important;
+}
+
+#museo .bandera-book-media figcaption strong{
+  color:var(--hueso) !important;
+  opacity:1 !important;
+}
+
+#museo .bandera-book-media figcaption span{
+  color:rgba(247,248,248,.88) !important;
+  opacity:1 !important;
+}
+
+/* ============================================================
+   CARRUSELES · CLICK PARA AMPLIAR EN PC Y MÓVIL
+   Solo refuerza la interacción existente.
+   ============================================================ */
+
+#galeria .gallery-item img,
+#recorrido .recorrido-shirt-card img{
+  cursor:zoom-in !important;
+  pointer-events:auto !important;
+  -webkit-user-drag:none !important;
+  user-select:none !important;
+}
+
+#galeria .gallery-item img:focus-visible,
+#recorrido .recorrido-shirt-card img:focus-visible{
+  outline:3px solid rgba(3,105,77,.36) !important;
+  outline-offset:-4px !important;
+}
+
+/* Lightbox: imagen completa y centrada en cualquier pantalla. */
+.lightbox-overlay{
+  padding:clamp(14px,3.5vw,48px) !important;
+  overflow:hidden !important;
+  touch-action:none !important;
+}
+
+.lightbox-overlay img{
+  width:auto !important;
+  height:auto !important;
+  max-width:min(95vw,1500px) !important;
+  max-height:90vh !important;
+  object-fit:contain !important;
+  object-position:center center !important;
+  margin:auto !important;
+  display:block !important;
+  border-radius:8px !important;
+}
+
+.lightbox-close{
+  z-index:5 !important;
+}
+
+/* En móvil el botón cerrar queda cómodo y la foto usa casi toda la pantalla. */
+@media (max-width:620px){
+  #museo .bandera-book-media img{
+    min-height:240px !important;
+  }
+
+  #museo .bandera-book-media figcaption{
+    padding:30px 12px 9px !important;
+  }
+
+  .lightbox-overlay{
+    padding:58px 10px 16px !important;
+  }
+
+  .lightbox-overlay img{
+    max-width:96vw !important;
+    max-height:84vh !important;
+  }
+
+  .lightbox-close{
+    top:10px !important;
+    right:10px !important;
+    width:46px !important;
+    height:46px !important;
   }
 }

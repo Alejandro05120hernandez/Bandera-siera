@@ -871,10 +871,10 @@ document.addEventListener("DOMContentLoaded", () => {
     // usa el marcador de posición de siempre (ícono + "Espacio para
     // fotografía"), así nunca se ve roto.
     const fotosPorValor = {
-      "patriotismo": "assets/images/values/foto-patriotismo.jpg",
-      "solidaridad": "assets/images/values/foto-solidaridad.jpg",
-      "respeto":     "assets/images/values/foto-respeto.jpg",
-      "libertad":    "assets/images/values/foto-libertad.jpg",
+      "patriotismo": "assets/images/values/foto-patriotismo.webp",
+      "solidaridad": "assets/images/values/foto-solidaridad.webp",
+      "respeto":     "assets/images/values/foto-respeto.webp",
+      "libertad":    "assets/images/values/foto-libertad.webp",
     };
 
     seccionValores.querySelectorAll(".valor-card").forEach((tarjeta, i) => {
@@ -967,12 +967,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
   mejorarValores();
 
+
   /* ---------------- LIGHTBOX: AMPLIAR IMÁGENES ----------------
-     Un solo overlay reutilizable para cualquier <img> "ampliable": la
-     bandera de Simbolismo, las fotos de la galería y las fotos de
-     Valores. Se conecta aquí, después de mejorarValores(), para que
-     esas fotos ya existan en la página. */
-  const imagenesAmpliables = document.querySelectorAll(".simbolismo-flag img, .gallery-item img, .recorrido-shirt-card img, .story-media img, .story-doc-card img, .bandera-researcher-media img, .recorrido-origin-media img, .program-shirt-card img, .valor-image img");
+     Mismo visor para PC y móvil.
+     Incluye explícitamente:
+       - Memoria Gráfica
+       - Playeras conmemorativas
+     y conserva el resto de imágenes ampliables que ya tenía la página.
+  ---------------------------------------------------------------- */
+  const imagenesAmpliables = document.querySelectorAll(
+    ".simbolismo-flag img, " +
+    ".gallery-item img, " +
+    ".recorrido-shirt-card img, " +
+    ".story-media img, " +
+    ".story-doc-card img, " +
+    ".bandera-researcher-media img, " +
+    ".recorrido-origin-media img, " +
+    ".program-shirt-card img, " +
+    ".valor-image img"
+  );
 
   if (imagenesAmpliables.length) {
     const overlay = document.createElement("div");
@@ -980,44 +993,89 @@ document.addEventListener("DOMContentLoaded", () => {
     overlay.setAttribute("role", "dialog");
     overlay.setAttribute("aria-modal", "true");
     overlay.setAttribute("aria-hidden", "true");
+    overlay.setAttribute("aria-label", "Visor de imagen ampliada");
+
     overlay.innerHTML = `
-      <button type="button" class="lightbox-close" aria-label="Cerrar">&times;</button>
+      <button type="button" class="lightbox-close" aria-label="Cerrar imagen ampliada">&times;</button>
       <img alt="">`;
+
     document.body.appendChild(overlay);
+
     const imgGrande = overlay.querySelector("img");
+    const closeButton = overlay.querySelector(".lightbox-close");
+    let ultimoFoco = null;
 
     function abrirLightbox(origen){
+      if (!origen || !origen.src) return;
+
+      ultimoFoco = document.activeElement;
       imgGrande.src = origen.currentSrc || origen.src;
-      imgGrande.alt = origen.alt || "";
+      imgGrande.alt = origen.alt || "Imagen ampliada";
+
       overlay.classList.add("is-open");
       overlay.setAttribute("aria-hidden", "false");
       document.body.style.overflow = "hidden";
+
+      requestAnimationFrame(() => closeButton.focus());
     }
+
     function cerrarLightbox(){
+      if (!overlay.classList.contains("is-open")) return;
+
       overlay.classList.remove("is-open");
       overlay.setAttribute("aria-hidden", "true");
       document.body.style.overflow = "";
+      imgGrande.removeAttribute("src");
+
+      if (ultimoFoco && typeof ultimoFoco.focus === "function") {
+        ultimoFoco.focus();
+      }
     }
 
     imagenesAmpliables.forEach(img => {
       img.style.cursor = "zoom-in";
       img.setAttribute("tabindex", "0");
       img.setAttribute("role", "button");
+
       if (!img.getAttribute("aria-label")) {
-        img.setAttribute("aria-label", `Ampliar imagen: ${img.alt || "fotografía"}`);
+        img.setAttribute(
+          "aria-label",
+          `Ampliar imagen: ${img.alt || "fotografía"}`
+        );
       }
-      img.addEventListener("click", () => abrirLightbox(img));
-      img.addEventListener("keydown", (e) => {
-        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); abrirLightbox(img); }
+
+      /* Clic/tap normal abre la imagen.
+         Los carruseles ya bloquean este clic cuando hubo arrastre real,
+         así que deslizar sigue funcionando sin abrir accidentalmente. */
+      img.addEventListener("click", event => {
+        event.stopPropagation();
+        abrirLightbox(img);
+      });
+
+      img.addEventListener("keydown", event => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          abrirLightbox(img);
+        }
       });
     });
 
-    overlay.addEventListener("click", (e) => { if (e.target === overlay) cerrarLightbox(); });
-    overlay.querySelector(".lightbox-close").addEventListener("click", cerrarLightbox);
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && overlay.classList.contains("is-open")) cerrarLightbox();
+    closeButton.addEventListener("click", cerrarLightbox);
+
+    overlay.addEventListener("click", event => {
+      if (event.target === overlay) cerrarLightbox();
+    });
+
+    document.addEventListener("keydown", event => {
+      if (
+        event.key === "Escape" &&
+        overlay.classList.contains("is-open")
+      ) {
+        cerrarLightbox();
+      }
     });
   }
+
 
   /* ---------------- MAPA + UBICACIÓN DEL RECORRIDO ----------------
      Esta versión mantiene la ruta existente y agrega:
@@ -1047,13 +1105,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const RUTA = [
     {
       nombre: "Tehuacán", estado: "Puebla", lat: 18.4665063, lng: -97.4003801,
-      foto: "assets/images/route/mapi-40-tehuacan.jpg",
+      foto: "assets/images/route/mapi-40-tehuacan.webp",
       historia: "Punto de salida del recorrido contemporáneo de la BANDERA SIERA desde Puebla.",
       hora: null,
     },
     {
       nombre: "Acultzingo", estado: "Veracruz", lat: 18.7157218, lng: -97.3057581,
-      foto: "assets/images/route/mapi-41-acultzingo.jpg",
+      foto: "assets/images/route/mapi-41-acultzingo.webp",
       historia: "Segunda parada del recorrido en su ingreso al estado de Veracruz.",
       hora: null,
     },
@@ -1071,7 +1129,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {
       nombre: "Huiloapan", estado: "Veracruz", lat: 18.8175606, lng: -97.1534390,
-      foto: "assets/images/route/bandera-siera-huiloapan.jpg",
+      foto: "assets/images/route/bandera-siera-huiloapan.webp",
       historia: "Municipio participante que recibe la BANDERA SIERA durante el recorrido regional.",
       hora: null,
     },
@@ -1083,13 +1141,13 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {
       nombre: "Río Blanco", estado: "Veracruz", lat: 18.8382010, lng: -97.1397530,
-      foto: "assets/images/route/bandera-siera-rio-blanco.jpg",
+      foto: "assets/images/route/bandera-siera-rio-blanco.webp",
       historia: "Municipio participante del relevo cívico de la BANDERA SIERA.",
       hora: null,
     },
     {
       nombre: "Orizaba", estado: "Veracruz", lat: 18.8504744, lng: -97.1036396,
-      foto: "assets/images/route/mapi-42-orizaba.jpg",
+      foto: "assets/images/route/mapi-42-orizaba.webp",
       historia: "En abril y mayo de 1812, fuerzas insurgentes vinculadas a Juan Moctezuma y Cortés participaron en operaciones en Orizaba y Córdoba.",
       hora: null,
     },
@@ -1113,7 +1171,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {
       nombre: "Tequila", estado: "Veracruz", lat: 18.7295682, lng: -97.0711071,
-      foto: "assets/images/route/mapi-37-tequila.jpg",
+      foto: "assets/images/route/mapi-37-tequila.webp",
       historia: "Municipio participante en el tramo serrano previo a Los Reyes y Zongolica.",
       hora: null,
     },
@@ -1125,7 +1183,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {
       nombre: "Zongolica", estado: "Veracruz", lat: 18.6668459, lng: -97.0001223,
-      foto: "assets/images/route/mapi-38-zongolica.jpg",
+      foto: "assets/images/route/mapi-38-zongolica.webp",
       historia: "El compendio histórico vincula a Zongolica con la organización insurgente encabezada por Juan Moctezuma y Cortés. Es la meta del recorrido contemporáneo.",
       hora: "10:30 p. m.",
     },
