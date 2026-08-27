@@ -1106,86 +1106,128 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       nombre: "Tehuacán", estado: "Puebla", lat: 18.4665063, lng: -97.4003801,
       foto: "assets/images/route/mapi-40-tehuacan.webp",
-      historia: "Punto de salida del recorrido contemporáneo de la BANDERA SIERA desde Puebla.",
-      hora: null,
+      historia: "Punto de salida del XXXV Recorrido de la BANDERA SIERA.",
+      hora: "8:00 a. m.", salida: "9:25 a. m.", traslado: "75 min",
+      responsable: "Lic. Ignacio Ramírez Flores",
+      recibe: "Palacio Municipal",
+      entrega: "Gasolinera de salida de Tehuacán, carretera libre",
     },
     {
       nombre: "Acultzingo", estado: "Veracruz", lat: 18.7157218, lng: -97.3057581,
       foto: "assets/images/route/mapi-41-acultzingo.webp",
-      historia: "Segunda parada del recorrido en su ingreso al estado de Veracruz.",
-      hora: null,
+      historia: "Parada oficial del XXXV Recorrido de la BANDERA SIERA.",
+      hora: "10:40 a. m.", salida: "11:10 a. m.", traslado: "40 min",
+      responsable: "Lic. Merly Cristina Lara Pérez",
+      recibe: "Puerto del Aire",
+      entrega: "A la altura de Ojo Zarco",
     },
     {
       nombre: "Maltrata", estado: "Veracruz", lat: 18.8109128, lng: -97.2780102,
       foto: null,
-      historia: "Municipio participante dentro de la ruta de la BANDERA SIERA rumbo a Zongolica.",
-      hora: null,
+      historia: "Parada oficial del XXXV Recorrido de la BANDERA SIERA.",
+      hora: "10:40 a. m.", salida: "11:20 a. m.", traslado: "30 min",
+      responsable: "Profr. Bartolo Carrera González",
+      recibe: "Explanada del Palacio Municipal",
+      entrega: "Recorrido por calles principales",
     },
     {
       nombre: "Ciudad Mendoza", estado: "Veracruz", lat: 18.8042090, lng: -97.1808552,
       foto: null,
-      historia: "Parada del Recorrido de la Insurgencia dentro de la región de las Altas Montañas.",
-      hora: null,
+      historia: "Parada oficial del XXXV Recorrido de la BANDERA SIERA.",
+      hora: "11:50 a. m.", salida: "12:10 p. m.", traslado: "30 min",
+      responsable: "Lic. Janeth Guadalupe Ortega Meza",
+      recibe: "A la altura de la Clínica de Pemex",
+      entrega: "A la altura de La Choza",
     },
     {
       nombre: "Huiloapan", estado: "Veracruz", lat: 18.8175606, lng: -97.1534390,
       foto: "assets/images/route/bandera-siera-huiloapan.webp",
-      historia: "Municipio participante que recibe la BANDERA SIERA durante el recorrido regional.",
-      hora: null,
+      historia: "Parada oficial del XXXV Recorrido de la BANDERA SIERA.",
+      hora: "12:40 p. m.", salida: "1:10 p. m.", traslado: "20 min",
+      responsable: "Lic. Getulio Alfaro Carrera",
+      recibe: "A la altura de La Choza",
+      entrega: "A la altura de la fábrica Sivesa",
     },
     {
       nombre: "Nogales", estado: "Veracruz", lat: 18.8213983, lng: -97.1624594,
       foto: null,
-      historia: "Parada del recorrido que conecta a los municipios de las Altas Montañas.",
-      hora: null,
+      historia: "Parada oficial del XXXV Recorrido de la BANDERA SIERA.",
+      hora: "1:30 p. m.", salida: "2:00 p. m.", traslado: "20 min",
+      responsable: "Profra. Nadia Irais Mazahua Hernández",
+      recibe: "A la altura de la fábrica Sivesa",
+      entrega: "A la altura de Pizzas Angeloti",
     },
     {
       nombre: "Río Blanco", estado: "Veracruz", lat: 18.8382010, lng: -97.1397530,
       foto: "assets/images/route/bandera-siera-rio-blanco.webp",
-      historia: "Municipio participante del relevo cívico de la BANDERA SIERA.",
-      hora: null,
+      historia: "Parada oficial del XXXV Recorrido de la BANDERA SIERA.",
+      hora: "2:20 p. m.", salida: "2:50 p. m.", traslado: "50 min",
+      responsable: "Profr. Octavio Temoxtle Dolores",
+      recibe: "A la altura de Pizzas Angeloti",
+      entrega: "En Los Arcos, entrada a Orizaba",
     },
     {
       nombre: "Orizaba", estado: "Veracruz", lat: 18.8504744, lng: -97.1036396,
       foto: "assets/images/route/mapi-42-orizaba.webp",
-      historia: "En abril y mayo de 1812, fuerzas insurgentes vinculadas a Juan Moctezuma y Cortés participaron en operaciones en Orizaba y Córdoba.",
-      hora: null,
+      historia: "Parada oficial del XXXV Recorrido de la BANDERA SIERA.",
+      hora: "3:40 p. m.", salida: "4:10 p. m.", traslado: null,
+      responsable: "Lic. Ignacio Ramírez Flores",
+      recibe: "En Los Arcos, entrada a Orizaba",
+      entrega: "A la altura de Alimentos Ochoa",
     },
     {
       nombre: "Rafael Delgado", estado: "Veracruz", lat: 18.8106854, lng: -97.0721359,
       foto: null,
-      historia: "Parada del recorrido antes de continuar hacia los municipios serranos de la ruta.",
-      hora: null,
+      historia: "Parada oficial del XXXV Recorrido de la BANDERA SIERA.",
+      hora: "5:30 p. m.", salida: "6:00 p. m.", traslado: "40 min",
+      responsable: "Profra. Nadia Irais Mazahua Hernández",
+      recibe: "A la altura de Alimentos Ochoa",
+      entrega: "A la altura de la iglesia de Jalapilla",
     },
     {
       nombre: "Tlilapan", estado: "Veracruz", lat: 18.8053094, lng: -97.0978119,
       foto: null,
-      historia: "Municipio participante del Recorrido de la Insurgencia en dirección a la Sierra de Zongolica.",
-      hora: null,
+      historia: "Parada oficial del XXXV Recorrido de la BANDERA SIERA.",
+      hora: "6:40 p. m.", salida: "7:10 p. m.", traslado: "30 min",
+      responsable: "Lic. Getulio Alfaro Carrera",
+      recibe: "A la altura de la iglesia de Jalapilla",
+      entrega: "En el Puente de Matzinga",
     },
     {
       nombre: "San Andrés Tenejapan", estado: "Veracruz", lat: 18.7882037, lng: -97.0930049,
       foto: null,
-      historia: "Parada serrana dentro de la ruta regional de la BANDERA SIERA.",
-      hora: null,
+      historia: "Parada oficial del XXXV Recorrido de la BANDERA SIERA.",
+      hora: "7:40 p. m.", salida: "8:10 p. m.", traslado: "50 min",
+      responsable: "Profr. Octavio Temoxtle Dolores",
+      recibe: "En el Puente de Matzinga",
+      entrega: "Cumbre de San Andrés",
     },
     {
       nombre: "Tequila", estado: "Veracruz", lat: 18.7295682, lng: -97.0711071,
       foto: "assets/images/route/mapi-37-tequila.webp",
-      historia: "Municipio participante en el tramo serrano previo a Los Reyes y Zongolica.",
-      hora: null,
+      historia: "Parada oficial del XXXV Recorrido de la BANDERA SIERA.",
+      hora: "9:00 p. m.", salida: "9:30 p. m.", traslado: "40 min",
+      responsable: "Lic. Merly Cristina Lara Pérez",
+      recibe: "Cumbre de San Andrés",
+      entrega: "Las Tlaxcas",
     },
     {
       nombre: "Los Reyes", estado: "Veracruz", lat: 18.6730869, lng: -97.0457357,
       foto: null,
-      historia: "Penúltima parada del recorrido antes de la llegada a Zongolica.",
-      hora: null,
+      historia: "Penúltima parada oficial antes de la llegada a Zongolica.",
+      hora: "10:10 p. m.", salida: "10:40 p. m.", traslado: "10 min",
+      responsable: "Lic. Ignacio Ramírez Flores",
+      recibe: "Las Tlaxcas; los corredores parten desde La Hernita hacia Los Reyes",
+      entrega: "Desviación a la entrada a Los Reyes",
     },
     {
       nombre: "Zongolica", estado: "Veracruz", lat: 18.6668459, lng: -97.0001223,
       foto: "assets/images/route/mapi-38-zongolica.webp",
-      historia: "El compendio histórico vincula a Zongolica con la organización insurgente encabezada por Juan Moctezuma y Cortés. Es la meta del recorrido contemporáneo.",
-      hora: "10:30 p. m.",
+      historia: "Meta del XXXV Recorrido de la BANDERA SIERA.",
+      hora: "11:00 p. m.", salida: null, traslado: null,
+      responsable: null,
+      recibe: "Desviación a la entrada a Los Reyes",
+      entrega: "Palacio Municipal",
     },
   ];
 
@@ -1569,11 +1611,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 <span>Estado</span>
                 <strong>${escapeHTML(parada.estado)}</strong>
               </div>
-
               <div>
-                <span>Llegada</span>
+                <span>Recepción</span>
                 <strong>${escapeHTML(hora)}</strong>
               </div>
+              ${parada.salida ? `<div><span>Salida</span><strong>${escapeHTML(parada.salida)}</strong></div>` : ""}
+              ${parada.traslado ? `<div><span>Traslado</span><strong>${escapeHTML(parada.traslado)}</strong></div>` : ""}
+              ${parada.recibe ? `<div class="route-popup-meta-wide"><span>Recibe</span><strong>${escapeHTML(parada.recibe)}</strong></div>` : ""}
+              ${parada.entrega ? `<div class="route-popup-meta-wide"><span>Entrega</span><strong>${escapeHTML(parada.entrega)}</strong></div>` : ""}
+              ${parada.responsable ? `<div class="route-popup-meta-wide"><span>Agradecimiento</span><strong>${escapeHTML(parada.responsable)}</strong></div>` : ""}
             </div>
 
             <a
