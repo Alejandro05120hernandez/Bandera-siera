@@ -8556,3 +8556,324 @@ main > section.scroll-live-stage.is-in-view .eyebrow-rule{
     transition:none;
   }
 }
+
+
+/* ============================================================
+   ACTIVIDADES EN ZONGOLICA · 15 DE SEPTIEMBRE DE 2026
+   Agregado puntual. No modifica la estructura existente.
+   ============================================================ */
+#programa .zongolica-local-program{
+  margin:42px 0 30px;
+  padding:clamp(20px,3vw,34px);
+  border:1px solid rgba(3,105,77,.14);
+  border-radius:20px;
+  background:rgba(247,248,248,.96);
+  box-shadow:0 18px 42px -34px rgba(3,105,77,.38);
+}
+
+#programa .zongolica-local-program-header{
+  max-width:930px;
+  margin:0 auto 24px;
+  text-align:center;
+}
+
+#programa .zongolica-local-program-header .eyebrow,
+#programa .zongolica-local-program-header .eyebrow-rule{
+  margin-inline:auto;
+}
+
+#programa .zongolica-local-program-header h3{
+  margin:10px 0 8px;
+  color:var(--tinta);
+  font-size:clamp(1.65rem,3vw,2.5rem);
+  line-height:1.08;
+}
+
+#programa .zongolica-local-program-header > p:last-child{
+  margin:0 auto;
+  max-width:780px;
+  color:var(--tinta-suave);
+  font-size:1rem;
+  line-height:1.65;
+}
+
+#programa .zongolica-local-agenda{
+  display:grid;
+  gap:10px;
+}
+
+#programa .zongolica-local-item{
+  display:grid;
+  grid-template-columns:128px minmax(0,1fr) minmax(150px,220px);
+  gap:18px;
+  align-items:start;
+  padding:18px 20px;
+  border:1px solid rgba(3,105,77,.12);
+  border-radius:14px;
+  background:linear-gradient(135deg,#fff 0%,rgba(247,248,248,.98) 72%,rgba(3,105,77,.055) 100%);
+}
+
+#programa .zongolica-local-item > time{
+  color:var(--verde-dark);
+  font-family:var(--titular);
+  font-weight:800;
+  font-size:.95rem;
+  line-height:1.35;
+}
+
+#programa .zongolica-local-main h4,
+#programa .zongolica-literary-heading h4,
+#programa .zongolica-final-events h4{
+  margin:0 0 6px;
+  color:var(--tinta);
+  font-family:var(--titular);
+  font-size:1rem;
+  line-height:1.35;
+}
+
+#programa .zongolica-local-main p,
+#programa .zongolica-literary-heading p,
+#programa .zongolica-final-events p{
+  margin:0 0 7px;
+  color:var(--tinta-suave);
+  font-size:.88rem;
+  line-height:1.55;
+}
+
+#programa .zongolica-local-main p strong,
+#programa .zongolica-literary-heading p strong,
+#programa .zongolica-final-events p strong{
+  color:var(--tinta);
+}
+
+#programa .zongolica-local-responsible{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+  padding-left:16px;
+  border-left:1px solid rgba(3,105,77,.13);
+}
+
+#programa .zongolica-local-responsible span{
+  color:var(--tinta-suave);
+  font-size:.7rem;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+#programa .zongolica-local-responsible strong{
+  color:var(--tinta);
+  font-size:.82rem;
+  line-height:1.4;
+}
+
+#programa .zongolica-local-tag{
+  justify-self:end;
+  display:inline-flex;
+  align-items:center;
+  min-height:30px;
+  padding:6px 11px;
+  border:1px solid rgba(3,105,77,.18);
+  border-radius:999px;
+  background:rgba(3,105,77,.07);
+  color:var(--verde-dark);
+  font-size:.68rem;
+  font-weight:800;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+}
+
+#programa .zongolica-local-tag--red{
+  color:var(--rojo);
+  border-color:rgba(212,31,53,.17);
+  background:rgba(212,31,53,.06);
+}
+
+#programa .zongolica-local-item--compact{
+  align-items:center;
+  padding-block:14px;
+}
+
+#programa .zongolica-local-notes{
+  margin-top:10px;
+  border-top:1px solid rgba(3,105,77,.11);
+}
+
+#programa .zongolica-local-notes summary{
+  padding:9px 0 2px;
+  color:var(--verde-dark);
+  font-size:.76rem;
+  font-weight:800;
+  cursor:pointer;
+}
+
+#programa .zongolica-local-notes > div{
+  padding:10px 0 2px;
+  color:var(--tinta-suave);
+  font-size:.8rem;
+  line-height:1.5;
+}
+
+#programa .zongolica-local-notes ul{
+  margin:8px 0 0 18px;
+  padding:0;
+}
+
+#programa .zongolica-local-notes li{
+  margin:3px 0;
+}
+
+#programa .zongolica-literary-program{
+  margin-top:22px;
+  padding:22px;
+  border:1px solid rgba(212,31,53,.13);
+  border-radius:16px;
+  background:linear-gradient(135deg,rgba(255,255,255,.99),rgba(247,248,248,.97));
+}
+
+#programa .zongolica-literary-heading{
+  display:flex;
+  justify-content:space-between;
+  gap:18px;
+  align-items:flex-start;
+  margin-bottom:14px;
+}
+
+#programa .zongolica-literary-heading > div > span{
+  display:block;
+  margin-bottom:5px;
+  color:var(--rojo);
+  font-size:.75rem;
+  font-weight:900;
+  letter-spacing:.07em;
+  text-transform:uppercase;
+}
+
+#programa .zongolica-literary-heading h4{
+  font-size:1.25rem;
+}
+
+#programa .zongolica-literary-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:8px 16px;
+}
+
+#programa .zongolica-literary-grid > div{
+  display:grid;
+  grid-template-columns:110px minmax(0,1fr);
+  gap:12px;
+  align-items:start;
+  padding:12px 0;
+  border-top:1px solid rgba(3,105,77,.10);
+}
+
+#programa .zongolica-literary-grid time{
+  color:var(--verde-dark);
+  font-size:.78rem;
+  font-weight:800;
+}
+
+#programa .zongolica-literary-grid p{
+  margin:0;
+  color:var(--tinta-suave);
+  font-size:.84rem;
+  line-height:1.5;
+}
+
+#programa .zongolica-literary-grid strong{
+  color:var(--tinta);
+}
+
+#programa .zongolica-literary-notes{
+  margin-top:8px;
+}
+
+#programa .zongolica-final-events{
+  display:grid;
+  gap:10px;
+  margin-top:22px;
+}
+
+#programa .zongolica-final-events article{
+  display:grid;
+  grid-template-columns:128px minmax(0,1fr);
+  gap:18px;
+  padding:17px 20px;
+  border:1px solid rgba(3,105,77,.12);
+  border-radius:14px;
+  background:#fff;
+}
+
+#programa .zongolica-final-events article > time{
+  color:var(--verde-dark);
+  font-family:var(--titular);
+  font-weight:800;
+}
+
+#programa .zongolica-final-events-highlight{
+  border-color:rgba(212,31,53,.18) !important;
+  background:linear-gradient(135deg,#fff 0%,rgba(212,31,53,.045) 100%) !important;
+}
+
+#programa .zongolica-final-events-highlight > time{
+  color:var(--rojo) !important;
+}
+
+@media (max-width:900px){
+  #programa .zongolica-local-item{
+    grid-template-columns:105px minmax(0,1fr);
+  }
+  #programa .zongolica-local-responsible,
+  #programa .zongolica-local-item > .zongolica-local-tag{
+    grid-column:2;
+    justify-self:start;
+  }
+  #programa .zongolica-local-responsible{
+    padding-left:0;
+    border-left:0;
+  }
+  #programa .zongolica-literary-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+@media (max-width:620px){
+  #programa .zongolica-local-program{
+    margin:30px 0 24px;
+    padding:16px 12px;
+    border-radius:16px;
+  }
+  #programa .zongolica-local-program-header{
+    margin-bottom:18px;
+  }
+  #programa .zongolica-local-item,
+  #programa .zongolica-final-events article{
+    grid-template-columns:1fr;
+    gap:8px;
+    padding:15px 14px;
+  }
+  #programa .zongolica-local-item > time,
+  #programa .zongolica-final-events article > time{
+    font-size:.82rem;
+  }
+  #programa .zongolica-local-responsible,
+  #programa .zongolica-local-item > .zongolica-local-tag{
+    grid-column:auto;
+  }
+  #programa .zongolica-literary-program{
+    padding:16px 14px;
+  }
+  #programa .zongolica-literary-heading{
+    display:block;
+  }
+  #programa .zongolica-literary-heading .zongolica-local-tag{
+    margin-top:8px;
+  }
+  #programa .zongolica-literary-grid > div{
+    grid-template-columns:1fr;
+    gap:4px;
+  }
+}
+  
