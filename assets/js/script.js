@@ -1763,18 +1763,38 @@ document.addEventListener("DOMContentLoaded", () => {
       );
 
       const abrirParada = () => {
-        map.invalidateSize({ pan:false });
+        const reducirMovimiento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-        map.flyTo(
-          marker.getLatLng(),
-          window.innerWidth <= 640 ? 11.5 : 12,
-          {
-            animate: true,
-            duration: .65
-          }
+        /* Primero lleva al usuario hasta el mapa interactivo.
+           Después centra el municipio seleccionado y abre su ficha. */
+        mapEl.scrollIntoView({
+          behavior: reducirMovimiento ? "auto" : "smooth",
+          block: "center"
+        });
+
+        const enfocarMunicipio = () => {
+          map.invalidateSize({ pan:false });
+
+          map.flyTo(
+            marker.getLatLng(),
+            window.innerWidth <= 640 ? 11.5 : 12,
+            {
+              animate: !reducirMovimiento,
+              duration: reducirMovimiento ? 0 : .65
+            }
+          );
+
+          setTimeout(
+            () => marker.openPopup(),
+            reducirMovimiento ? 50 : 320
+          );
+        };
+
+        /* Da tiempo al scroll para llegar al mapa antes de mover Leaflet. */
+        setTimeout(
+          enfocarMunicipio,
+          reducirMovimiento ? 40 : 520
         );
-
-        setTimeout(() => marker.openPopup(), 300);
       };
 
       item.addEventListener("click", abrirParada);
