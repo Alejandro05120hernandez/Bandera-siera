@@ -8876,4 +8876,240 @@ main > section.scroll-live-stage.is-in-view .eyebrow-rule{
     gap:4px;
   }
 }
-  
+
+/* ============================================================
+   SECTION SNAPPING · DESPLAZAMIENTO POR SECCIONES
+   ------------------------------------------------------------
+   Se agrega únicamente el comportamiento de CSS Scroll Snap.
+   No cambia estructura, contenido, fondos, tamaños ni componentes.
+   Se usa "proximity" para conservar el desplazamiento natural en
+   secciones largas como Recorrido, Programa y Memoria Gráfica.
+   ============================================================ */
+
+html{
+  scroll-snap-type: y proximity;
+  scroll-padding-top: 88px;
+}
+
+main > section{
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
+}
+
+main > section#inicio{
+  scroll-snap-stop: always;
+}
+
+@media (max-width: 900px){
+  html{
+    scroll-snap-type: y proximity;
+    scroll-padding-top: 76px;
+  }
+
+  main > section{
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  html{
+    scroll-snap-type: none;
+  }
+
+  main > section{
+    scroll-snap-align: none;
+    scroll-snap-stop: normal;
+  }
+}
+
+/* ============================================================
+   AJUSTE FINAL · SCROLL UXERFLOW + TEXTO EDITORIAL
+   ------------------------------------------------------------
+   SOLO modifica:
+   1. sensación de desplazamiento entre capítulos;
+   2. alineación de los títulos principales;
+   3. justificación de los párrafos indicados.
+   No cambia estructura, fondos, paleta, mapa, carruseles o contenido.
+   ============================================================ */
+
+/* ---------- Scroll por capítulos / snap suave ---------- */
+html{
+  scroll-snap-type:y proximity !important;
+  scroll-padding-top:88px;
+}
+
+/* Todas las secciones siguen siendo puntos naturales de llegada. */
+main > section{
+  scroll-snap-align:start;
+  scroll-snap-stop:normal;
+}
+
+/* Solo los capítulos suficientemente cortos frenan de forma más marcada.
+   La clase la calcula script.js según el alto real de cada sección. */
+main > section.scroll-snap-short{
+  scroll-snap-stop:always;
+}
+
+/* El contenido entra/sale con una profundidad más notoria, similar a un
+   showcase de UX, pero el fondo de cada sección permanece completamente fijo. */
+main > section.scroll-live-stage:not(.hero) > .wrap{
+  transform-origin:center 38% !important;
+  filter:
+    blur(calc((1 - var(--stage-glow, 1)) * 2.6px))
+    saturate(calc(.94 + (var(--stage-glow, 1) * .06))) !important;
+  transition:filter .08s linear !important;
+}
+
+/* El capítulo que cruza el centro del viewport queda totalmente nítido. */
+main > section.scroll-live-stage.is-scroll-current:not(.hero) > .wrap{
+  filter:blur(0) saturate(1) !important;
+}
+
+/* No desplazamos lateralmente los encabezados: el efecto se concentra
+   únicamente en profundidad vertical y escala. */
+main > section.scroll-live-stage .eyebrow,
+main > section.scroll-live-stage .historia-resumida-header,
+main > section.scroll-live-stage .juan-story-header,
+main > section.scroll-live-stage .museum-gateway-head,
+main > section.scroll-live-stage .agenda-header{
+  transform:none !important;
+}
+
+/* ---------- Títulos principales centrados ---------- */
+
+/* INTRODUCCIÓN */
+#introduccion > .wrap > .eyebrow{
+  text-align:center;
+}
+#introduccion > .wrap > .eyebrow-rule{
+  margin-left:auto;
+  margin-right:auto;
+}
+
+/* HISTORIA INSURGENTE */
+#historia .story-chapter-header{
+  max-width:980px;
+  margin-left:auto;
+  margin-right:auto;
+  text-align:center;
+}
+#historia .story-chapter-header .eyebrow{
+  text-align:center;
+}
+#historia .story-chapter-header .eyebrow-rule{
+  margin-left:auto;
+  margin-right:auto;
+}
+#historia .story-chapter-header h2{
+  margin-left:auto;
+  margin-right:auto;
+  text-align:center;
+}
+
+/* MUSEO DIGITAL / BANDERA SIERA */
+#museo .story-chapter-header{
+  max-width:980px;
+  margin-left:auto;
+  margin-right:auto;
+  text-align:center;
+}
+#museo .story-chapter-header .eyebrow{
+  text-align:center;
+}
+#museo .story-chapter-header .eyebrow-rule{
+  margin-left:auto;
+  margin-right:auto;
+}
+#museo .story-chapter-header h2{
+  margin-left:auto;
+  margin-right:auto;
+  text-align:center;
+}
+
+/* SIMBOLISMO */
+#simbolismo .simbolismo-video-content > .eyebrow{
+  text-align:center;
+}
+#simbolismo .simbolismo-video-content > .eyebrow-rule{
+  margin-left:auto;
+  margin-right:auto;
+}
+
+/* EL RECORRIDO */
+#recorrido > .wrap > .eyebrow{
+  text-align:center;
+}
+#recorrido > .wrap > .eyebrow-rule{
+  margin-left:auto;
+  margin-right:auto;
+}
+
+/* ---------- Párrafos justificados ---------- */
+
+/* Justificación editorial únicamente en los apartados mostrados por el usuario. */
+#introduccion .intro-copy p,
+
+#historia .story-chapter-header .section-lead,
+#historia .story-context-card p,
+#historia .story-copy p,
+#historia .story-timeline p,
+
+#museo .story-chapter-header .section-lead,
+#museo .story-copy p,
+#museo .bandera-legend-card p,
+#museo .bandera-story-timeline p,
+#museo .bandera-researcher-copy p,
+
+#simbolismo .simbolismo-note p,
+#simbolismo .simbolo-defs p,
+
+#recorrido > .wrap > .section-lead,
+#recorrido .hymn-annex-copy p,
+#recorrido .recorrido-origin-copy p,
+#recorrido .timeline-content p{
+  text-align:justify !important;
+  text-justify:inter-word;
+  text-align-last:left;
+  hyphens:auto;
+  -webkit-hyphens:auto;
+}
+
+/* Las introducciones de Historia y Museo permanecen centradas como bloque,
+   pero el contenido del párrafo queda justificado. */
+#historia .story-chapter-header .section-lead,
+#museo .story-chapter-header .section-lead{
+  margin-left:auto;
+  margin-right:auto;
+}
+
+/* En móvil conservamos el mismo criterio, reduciendo la profundidad
+   para evitar saltos o mareo. */
+@media (max-width:900px){
+  html{
+    scroll-padding-top:76px;
+  }
+
+  main > section.scroll-live-stage:not(.hero) > .wrap{
+    filter:none !important;
+  }
+}
+
+/* Accesibilidad: sin movimiento para quien lo solicite. */
+@media (prefers-reduced-motion:reduce){
+  html{
+    scroll-snap-type:none !important;
+  }
+
+  main > section{
+    scroll-snap-align:none !important;
+    scroll-snap-stop:normal !important;
+  }
+
+  main > section.scroll-live-stage:not(.hero) > .wrap{
+    filter:none !important;
+    transform:none !important;
+    opacity:1 !important;
+  }
+}
+

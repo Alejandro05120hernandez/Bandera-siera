@@ -70,6 +70,20 @@ document.addEventListener("DOMContentLoaded", () => {
     section.classList.add("scroll-stage", "scroll-live-stage");
   });
 
+  /* Las secciones cortas reciben un punto de snap más firme.
+     Las secciones largas conservan desplazamiento completamente natural. */
+  function actualizarSeccionesSnap(){
+    const limite = Math.max(window.innerHeight, 1) * 1.28;
+
+    scrollStages.forEach((section) => {
+      const esCorta = section.scrollHeight <= limite;
+      section.classList.toggle("scroll-snap-short", esCorta);
+    });
+  }
+
+  actualizarSeccionesSnap();
+  window.addEventListener("resize", actualizarSeccionesSnap);
+
   /* Entrada inicial de cada capítulo. Se conserva una vez revelado para
      que el contenido nunca vuelva a ocultarse al retroceder en la página. */
   if ("IntersectionObserver" in window && !reduceMotion.matches) {
@@ -145,16 +159,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
       /* El efecto en móvil es intencionalmente menor para evitar mareo y
          conservar 60fps. En PC aumenta un poco la sensación de profundidad. */
-      const maxY = mobile ? 13 : 25;
-      const maxScaleLoss = mobile ? 0.010 : 0.026;
-      const maxOpacityLoss = mobile ? 0.035 : 0.10;
-      const maxRotate = mobile ? 0 : 0.72;
+      const maxY = mobile ? 20 : 48;
+      const maxScaleLoss = mobile ? 0.018 : 0.055;
+      const maxOpacityLoss = mobile ? 0.055 : 0.18;
+      const maxRotate = 0;
 
       const y = signedDistance * maxY;
       const scale = 1 - distance * maxScaleLoss;
       const opacity = 1 - distance * maxOpacityLoss;
       const rotate = signedDistance * -maxRotate;
-      const headingX = mobile ? 0 : signedDistance * -10;
+      const headingX = 0;
       const glow = 1 - distance;
 
       section.style.setProperty("--stage-y", `${y.toFixed(2)}px`);
